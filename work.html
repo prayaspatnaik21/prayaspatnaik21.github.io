@@ -3,19 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Work Experience - Prayas Patnaik. Software Engineer specializing in embedded systems and backend development.">
     <title>Work Experience - Prayas Patnaik</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Work Experience</h1>
-            <a href="index.html">← Back to Portfolio</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Prayas Patnaik</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+            </ul>
         </div>
+    </nav>
 
-        <div class="job">
-            <h3>Software Engineer (Team - FurrowVision)</h3>
-            <p>RFA Engineer | Feb 2024 - Feb 2025 </p>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Header Section -->
+        <section class="header">
+            <h1>Work Experience</h1>
+            <p>A detailed look at my professional journey</p>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="work-experience" id="work">
+            <div class="job">
+                <h3>Embedded Software Engineer</h3>
+                <p>RFA Engineering | 2023 - Present</p>
             <ul>
                 <li>Worked on Camera Switching Feature for Gen5 Display on IPM (Image Processing Module) using MQTT for Furrow Vision Application.</li>
                 <li>Designed Multi-Threaded Interface for managing configurations of multiple displays (Gen5, Gen4).</li>
@@ -37,8 +56,22 @@
                 <li>Implemented OpenGL Common Module Framework to stitch Left and Right Images from Stereo Cameras on Arm Mali 400 GPU, resulted in CPU usage to 220% to 103% and latency from 140ms to 95ms (32%). Developed Custom Shaders for Homography Operations.</li>
                 <li>Worked on Python to write automation test cases for Software Validation and utilized DISDATT tool to facilitate testing.</li>
                 <li>Employed LTTNG for profiling code and optimizing performance. Successfully identified bottlenecks in the code.</li>
-                <li>Implemented Bash scripting to generate code coverage reports with LLVM and automate the task in Jenkins.</li>
-            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/prayaspatnaik21" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/prayas-patnaik-245a49123/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:prayaspatnaik21@gmail.com">Email</a>
+        </div>
+        <p>&copy; 2024 Prayas Patnaik. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/dark-mode.js"></script>
+    <script src="js/script.js"></script>  </ul>
         </div>
     </div>
 </body>

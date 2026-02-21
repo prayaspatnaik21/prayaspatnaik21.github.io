@@ -1,9 +1,35 @@
+:root {
+    --bg-primary: #f4f4f4;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #333333;
+    --box-shadow: rgba(0,0,0,0.1);
+    --job-bg: #f9f9f9;
+    --job-border: blue;
+    --job-text: darkblue;
+}
+
+body.dark-mode {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border-color: #e0e0e0;
+    --box-shadow: rgba(0,0,0,0.3);
+    --job-bg: #3a3a3a;
+    --job-border: #6699ff;
+    --job-text: #99ccff;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -15,6 +41,27 @@ body {
 .header {
     text-align: center;
     margin-bottom: 2rem;
+    position: relative;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode .dark-mode-toggle {
+    filter: invert(1);
 }
 
 .profile-img {
@@ -22,33 +69,38 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #333;
+    border: 3px solid var(--border-color);
+    transition: border-color 0.3s;
 }
 
 .about-me, .work-experience {
-    background-color: white;
+    background-color: var(--bg-secondary);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px var(--box-shadow);
     margin-bottom: 2rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .job {
     padding: 1rem;
-    border-left: 4px solid blue;
+    border-left: 4px solid var(--job-border);
     margin-bottom: 1rem;
-    background-color: #f9f9f9;
+    background-color: var(--job-bg);
     border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .job h3 {
     margin: 0;
-    color: darkblue;
+    color: var(--job-text);
+    transition: color 0.3s;
 }
 
 .job p {
     margin: 0;
     font-weight: bold;
+    color: var(--text-primary);
 }
 
 .job ul {
@@ -62,10 +114,11 @@ body {
 
 .social-links a {
     margin: 0 10px;
-    color: #333;
+    color: var(--text-primary);
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .social-links a:hover {
-    color: #666;
+    color: var(--job-border);
 }

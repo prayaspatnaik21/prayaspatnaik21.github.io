@@ -1,8 +1,12 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Portfolio loaded!");
-    
-    // Dark Mode Toggle
+/**
+ * Dark Mode Toggle Functionality
+ * Shared across all pages
+ */
+
+function initializeDarkMode() {
     const darkModeToggle = document.getElementById("darkModeToggle");
+    
+    if (!darkModeToggle) return;
     
     // Check for saved dark mode preference or default to false
     const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -24,4 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Save preference to localStorage
         localStorage.setItem("darkMode", isCurrentlyDark);
     });
-});
+}
+
+// Initialize when DOM is ready
+document.addEventListener("DOMContentLoaded", initializeDarkMode);
