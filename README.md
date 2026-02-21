@@ -68,21 +68,6 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000` in your browser.
 
-### Testing checklist before deploying:
-- [ ] Dark mode toggle works
-- [ ] All links work
-- [ ] Responsive on mobile, tablet, and desktop
-- [ ] No console errors (F12 → Console)
-- [ ] Images load properly
-- [ ] All pages have navigation
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: Below 768px
-- **Small Mobile**: Below 480px
-
 ## 🎨 Customizing Colors
 
 All colors use CSS variables in `css/styles.css`:
@@ -138,11 +123,3 @@ git push origin feature/blog-post-title
 3. Visit `https://prayaspatnaik21.github.io`
 
 ## 📝 Notes for Future Enhancements
-
-- **Search**: Add client-side search for blog posts
-- **Tags**: Add tag-based filtering for blog posts
-- **Comments**: Integrate a comment system (e.g., Disqus)
-- **Analytics**: Add Google Analytics for tracking
-- **Social Sharing**: Add social media share buttons
-- **Reading Time**: Auto-calculate reading time from word count
-- **Table of Contents**: Auto-generate TOC for long posts
