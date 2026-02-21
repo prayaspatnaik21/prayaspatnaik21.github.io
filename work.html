@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Work Experience - Prayas Patnaik. Software Engineer specializing in embedded systems and backend development.">
+    <meta name="description" content="Work Experience - Prayas Patnaik. Software Engineer specializing in image processing, GPU optimization, and embedded systems.">
     <title>Work Experience - Prayas Patnaik</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -32,30 +32,55 @@
 
         <!-- Work Experience Section -->
         <section class="work-experience" id="work">
+            <!-- RFA Engineering - Imaging Team -->
             <div class="job">
-                <h3>Embedded Software Engineer</h3>
-                <p>RFA Engineering | 2023 - Present</p>
-            <ul>
-                <li>Worked on Camera Switching Feature for Gen5 Display on IPM (Image Processing Module) using MQTT for Furrow Vision Application.</li>
-                <li>Designed Multi-Threaded Interface for managing configurations of multiple displays (Gen5, Gen4).</li>
-                <li>Implemented Image Throttle Algorithm for Application to operate on desired Frequency (Current 1Hz).</li>
-                <li>Integrated License Activation Enablement Feature for the Application for subscription Policy. (CAN protocol).</li>
-                <li>Developed MQTT Communication service to manage and process messages for multiple clients efficiently.</li>
-                <li>Worked on Writing Automation Test cases for the Features Mentioned above for Software Validation using Python.</li>
-                <li>Collaborated with the Verification Champion for the proper testing of the Features and Field Testing. </li>
-                <li>Feature Release Testing and Resolve Defects. </li>
-            </ul>
-        </div>
+                <h3>Software Engineer (Automation Engineering Group - Imaging Team)</h3>
+                <p><strong>RFA Engineering</strong> • Urbandale, Iowa • March 2025 - Present</p>
+                <ul>
+                    <li>Working on Image Quality Optimization and ISP Tuning for image sensors</li>
+                    <li>Designed PWL (Piecewise Linear) and Auto Exposure Diagram for the Sony Camera</li>
+                    <li>Optimized Reinhard Tone Mapping in the Camera ISP pipeline by LUT Decimation</li>
+                    <li>Automated perception quality metrics (SNR, Delta-E) calculations using eSFR Charts and ColorChecker boards for camera evaluation pipelines</li>
+                    <li>Developed a GUI-based tuning application to configure and validate sensor and ISP parameters</li>
+                </ul>
+            </div>
 
-        <div class="job">
-            <h3>Senior Engineer</h3>
-            <p>John Deere | July 2019 - Dec 2021</p>
-            <ul>
-                <li>Optimized color conversion operations from RGB/YCrCb images to NV12 images using Neon Arm Compute Library for the Digital Streaming Service. (Arm Cortex A53) (Low level ML library).</li>
-                <li>Created Media Pipelines using Pipeline based multimedia framework Gstreamer.</li>
-                <li>Implemented OpenGL Common Module Framework to stitch Left and Right Images from Stereo Cameras on Arm Mali 400 GPU, resulted in CPU usage to 220% to 103% and latency from 140ms to 95ms (32%). Developed Custom Shaders for Homography Operations.</li>
-                <li>Worked on Python to write automation test cases for Software Validation and utilized DISDATT tool to facilitate testing.</li>
-                <li>Employed LTTNG for profiling code and optimizing performance. Successfully identified bottlenecks in the code.</li>
+            <!-- RFA Engineering - Furrow Vision -->
+            <div class="job">
+                <h3>Software Engineer (Automation Engineering Group - Team Furrow Vision)</h3>
+                <p><strong>RFA Engineering</strong> • Urbandale, Iowa • May 2023 - March 2025</p>
+                <ul>
+                    <li>Developed Camera Switching Feature for Gen5 Display on IPM (Image Processing Module) using MQTT for Furrow Vision Application</li>
+                    <li>Designed and implemented multi-threaded configuration interface supporting multiple display generations (Gen5, Gen4)</li>
+                    <li>Implemented Image Throttle Algorithm for Application to operate on desired Frequency (Current 1Hz)</li>
+                    <li>Integrated License Activation Enablement Feature for the Application for subscription Policy (CAN protocol)</li>
+                    <li>Built MQTT-based Communication service to manage and process messages across multiple cameras and display clients</li>
+                    <li>Created Plugin for Calculating Average Automation Signal for Furrow Vision (RoboticsWorkbench)</li>
+                    <li>Wrote comprehensive Automation Test cases for all features using Python for Software Validation</li>
+                    <li>Collaborated with Verification Champion for proper testing of features and Field Testing</li>
+                    <li>Performed Feature Release Testing and resolved defects</li>
+                </ul>
+            </div>
+
+            <!-- John Deere -->
+            <div class="job">
+                <h3>Senior Engineer (Automation Engineering Group)</h3>
+                <p><strong>John Deere India Pvt Ltd</strong> • Pune, India • July 2019 - December 2021</p>
+                <ul>
+                    <li>Optimized color conversion operations from RGB/YCrCb images to NV12 images using Neon Arm Compute Library for the Digital Streaming Service (Arm Cortex A53, Low-level ML library)</li>
+                    <li>Created Media Pipelines using Gstreamer (Pipeline-based multimedia framework)</li>
+                    <li>Implemented OpenGL Common Module Framework to stitch Left and Right Images from Stereo Cameras on Arm Mali 400 GPU, resulting in:
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>CPU usage reduction:</strong> 220% → 103%</li>
+                            <li><strong>Latency reduction:</strong> 140ms → 95ms (32% improvement)</li>
+                        </ul>
+                    </li>
+                    <li>Developed Custom Shaders for Homography Operations</li>
+                    <li>Wrote automation test cases using Python for Software Validation and utilized DISDATT tool for testing facilitation</li>
+                    <li>Employed LTTNG for profiling code and optimizing performance, successfully identifying code bottlenecks</li>
+                    <li>Implemented Bash scripting to generate code coverage reports with LLVM and automated the task in Jenkins</li>
+                </ul>
+            </div>
         </section>
     </main>
 
@@ -71,8 +96,6 @@
 
     <!-- Scripts -->
     <script src="js/dark-mode.js"></script>
-    <script src="js/script.js"></script>  </ul>
-        </div>
-    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
