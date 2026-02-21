@@ -32,36 +32,35 @@
         <!-- Blog Section -->
         <section class="blog-section" id="blog">
             <div class="blog-grid">
-                <!-- Blog Post Card 1 -->
+                <!-- 
+                    HOW TO ADD A NEW BLOG POST:
+                    
+                    1. Create a new HTML file in the blog/ folder:
+                       - Copy blog/template.html
+                       - Rename to: blog/your-post-title.html
+                       - Edit the content with your article
+                    
+                    2. Add a blog card below (copy this template):
+                       - Update the emoji/icon in blog-card-cover
+                       - Set the title in <h3>
+                       - Set the date in blog-card-meta
+                       - Brief description in <p>
+                       - Update the href to point to your blog post file
+                    
+                    3. Commit and push to git:
+                       git add blog/
+                       git commit -m "Add blog post: your-post-title"
+                       git push origin main
+                -->
+                
+                <!-- Blog Post Card Template - Copy this for each new post -->
                 <article class="blog-card">
                     <div class="blog-card-cover">📝</div>
                     <div class="blog-card-content">
-                        <h3>Coming Soon</h3>
-                        <div class="blog-card-meta">Stay tuned for exciting articles!</div>
-                        <p>More blog posts coming soon. Check back regularly for updates on software engineering, embedded systems, and technology insights.</p>
-                        <a href="#">Read More →</a>
-                    </div>
-                </article>
-
-                <!-- Blog Post Card 2 -->
-                <article class="blog-card">
-                    <div class="blog-card-cover">💡</div>
-                    <div class="blog-card-content">
-                        <h3>Stay Updated</h3>
-                        <div class="blog-card-meta">Portfolio Blog</div>
-                        <p>This blog section will feature technical articles, project insights, and lessons learned from my experience as a software engineer.</p>
-                        <a href="#">Read More →</a>
-                    </div>
-                </article>
-
-                <!-- Blog Post Card 3 -->
-                <article class="blog-card">
-                    <div class="blog-card-cover">🚀</div>
-                    <div class="blog-card-content">
-                        <h3>Projects & Insights</h3>
-                        <div class="blog-card-meta">Technical Deep Dives</div>
-                        <p>Expect in-depth explorations of optimization techniques, system design patterns, and practical solutions to real-world engineering challenges.</p>
-                        <a href="#">Read More →</a>
+                        <h3>Your Blog Post Title</h3>
+                        <div class="blog-card-meta">February 21, 2026</div>
+                        <p>Write a brief description of your blog post here. This is what readers see before clicking "Read More".</p>
+                        <a href="blog/your-post-file.html">Read More →</a>
                     </div>
                 </article>
             </div>
