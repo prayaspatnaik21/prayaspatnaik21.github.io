@@ -32,23 +32,35 @@ function setupSmoothScroll() {
  * Setup greeting animation on page load
  */
 function setupGreetingAnimation() {
+    console.log("Setting up greeting animation...");
+    
     const profileImg = document.getElementById('profileImg');
     const greetingMessage = document.getElementById('greetingMessage');
     
+    console.log("Profile img found:", !!profileImg);
+    console.log("Greeting message found:", !!greetingMessage);
+    
     if (profileImg && greetingMessage) {
+        console.log("Both elements found, starting animation...");
+        
         // Start the profile image animation
         setTimeout(() => {
+            console.log("Adding animate-greeting class to profile image");
             profileImg.classList.add('animate-greeting');
             
             // Show the greeting message
             setTimeout(() => {
+                console.log("Adding show class to greeting message");
                 greetingMessage.classList.add('show');
                 
                 // Hide greeting after 4 seconds
                 setTimeout(() => {
+                    console.log("Removing show class from greeting message");
                     greetingMessage.classList.remove('show');
                 }, 4000);
             }, 800);
         }, 500);
+    } else {
+        console.log("Missing elements - profileImg:", profileImg, "greetingMessage:", greetingMessage);
     }
 }

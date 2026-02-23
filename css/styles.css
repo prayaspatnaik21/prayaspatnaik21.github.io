@@ -160,14 +160,14 @@ main {
 }
 
 .profile-img.animate-greeting {
-    animation: popOut 1.5s ease-out forwards, bounce 2s ease-in-out 1.5s infinite;
+    animation: popOut 1.5s ease-out forwards;
 }
 
 .greeting-message {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 120%;
+    transform: translateY(-50%);
     background: linear-gradient(135deg, #ffd700, #ffed4e);
     color: #333;
     padding: 15px 25px;
