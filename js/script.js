@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Add smooth scroll behavior
     setupSmoothScroll();
+    
+    // Trigger greeting animation
+    setupGreetingAnimation();
 });
 
 /**
@@ -23,4 +26,29 @@ function setupSmoothScroll() {
             }
         });
     });
+}
+
+/**
+ * Setup greeting animation on page load
+ */
+function setupGreetingAnimation() {
+    const profileImg = document.getElementById('profileImg');
+    const greetingMessage = document.getElementById('greetingMessage');
+    
+    if (profileImg && greetingMessage) {
+        // Start the profile image animation
+        setTimeout(() => {
+            profileImg.classList.add('animate-greeting');
+            
+            // Show the greeting message
+            setTimeout(() => {
+                greetingMessage.classList.add('show');
+                
+                // Hide greeting after 4 seconds
+                setTimeout(() => {
+                    greetingMessage.classList.remove('show');
+                }, 4000);
+            }, 800);
+        }, 500);
+    }
 }
