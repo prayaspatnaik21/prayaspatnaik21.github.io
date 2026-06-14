@@ -1,91 +1,148 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prayas Patnaik - Software Engineer & Developer Portfolio. Embedded systems, C++, Python, and more.">
-    <title>Prayas Patnaik - Portfolio</title>
+    <meta name="description" content="Prayas Patnaik - Perception Engineer specializing in Camera ISP, Image Quality Optimization, and Automotive Imaging Systems">
+    <title>Prayas Patnaik | Perception Engineer</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Prayas Patnaik</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Header Section -->
-        <section class="header">
-            <div class="profile-container">
-                <img src="images/prayas.jpg" alt="Prayas Patnaik - Software Engineer" class="profile-img" id="profileImg">
-                <div class="greeting-message" id="greetingMessage">
-                    <span class="wave-hand">👋</span>
-                    <span class="greeting-text">Hi, I'm Prayas!</span>
-                </div>
-            </div>
-            <h1>Prayas Patnaik</h1>
-            <p>Engineer | Perception Systems | Automotive</p>
-            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 1rem;">
-                <a href="mailto:prayaspatnaik21@gmail.com" style="color: var(--job-border); text-decoration: none;">prayaspatnaik21@gmail.com</a> | 
-                <a href="tel:+19452170624" style="color: var(--job-border); text-decoration: none;">+1 (945) 217-0624</a>
-            </p>
-        </section>
+<!-- NAV -->
 
-        <!-- Intro Section -->
-        <section class="card" id="intro">
-            <h2>What I Do</h2>
-            <ul>
-                <li>Image Quality Optimization for Automotive Sensors</li>
-                <li>Camera ISP Fine Tuning</li>
-                <li>Image Quality Issues Analysis & Pipeline Improvement</li>
-            </ul>
-        </section>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">Prayas Patnaik</a>
+        <ul class="nav-links">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="assets/resume.docx" target="_blank">Resume</a></li>
+            <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+        </ul>
+    </div>
+</nav>
 
-        <!-- Education Section -->
-        <section class="card" id="education">
-            <h2>🎓 Education</h2>
-            <div class="job" style="border-left-color: var(--job-border);">
-                <h3>Master of Science in Computer Engineering</h3>
-                <p>The University of Texas at Dallas • Dec 2023</p>
-            </div>
-            <div class="job" style="border-left-color: var(--job-border);">
-                <h3>Bachelor of Technology in Electronics and Communication</h3>
-                <p>National Institute of Technology, Surat • June 2019</p>
-            </div>
-        </section>
+<!-- HERO -->
 
-        <!-- CTA Section -->
-        <section class="card" id="cta" style="text-align: center; background: linear-gradient(135deg, rgba(102, 153, 255, 0.1), rgba(153, 204, 255, 0.1));">
-            <h2>Ready to Learn More?</h2>
-            <p>Check out my detailed work experience, technical articles, or get in touch!</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="work.html" class="btn">View Work Experience</a>
-                <a href="blog.html" class="btn">Read My Blog</a>
-            </div>
-        </section>
-    </main>
+<main class="container">
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="social-links">
-            <a href="https://github.com/prayaspatnaik21" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/prayas-patnaik-245a49123/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:prayaspatnaik21@gmail.com">Email</a>
-        </div>
-        <p>&copy; 2024 Prayas Patnaik. All rights reserved.</p>
-    </footer>
+<section class="header">
 
-    <!-- Scripts -->
-    <script src="js/dark-mode.js"></script>
-    <script src="js/script.js"></script>
+<img src="images/prayas.jpg" class="profile-img" alt="Prayas Patnaik">
+
+<h1>Prayas Patnaik</h1>
+
+<p class="contact">
+    <a href="mailto:prayaspatnaik21@gmail.com">Email</a> |
+    <a href="tel:+19452170624">Phone</a> |
+    <a href="https://github.com/prayaspatnaik21">GitHub</a> |
+    <a href="https://www.linkedin.com/in/prayas-patnaik-245a49123/">LinkedIn</a>
+</p>
+
+</section>
+
+<!-- WHAT I DO -->
+
+<section class="card">
+    <h2>What I Do</h2>
+    <ul>
+        <li>Design and optimize camera ISP pipelines for automotive imaging systems</li>
+        <li>Develop and tune image processing algorithms including tone mapping, exposure control, and color correction</li>
+        <li>Build automated image quality evaluation pipelines using SNR, ΔE, eSFR charts, and color calibration targets</li>
+    </ul>
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="card">
+    <h2>Professional Experience</h2>
+
+<div class="job">
+    <h3>Software Engineer – Imaging Team</h3>
+    <p>RFA Engineering • Mar 2025 – Present</p>
+    <ul>
+        <li>Working on Image Quality Optimization and ISP Tuning for image sensors.</li>
+        <li>Designed PWL and Auto Exposure Diagram for the Sony Camera.</li>
+        <li> Optimized Reinhard Tone Mapping in the Camera ISP pipeline by LUT Decimation.</li>
+        <li>Automated perception quality metrics (SNR, Delta-E) calculations using eSFR Charts and ColorChecker boards for camera evaluation pipelines.</li>
+        <li>Developed a GUI Based Tuning application to configure and validate sensor and ISP parameters.</li>
+        <li> Integrated Exposure Control Integration for Onsemi image Sensor within the application pipeline.</li>
+        <li> Developed and automated Motion blur analysis pipeline, computing Blur Edge Width using Siemens start charts across varying exposure times.</li>
+        <li> Designed and optimized an automated Color Correction Matrix (CCM) by minimizing error between 24 patch Color Checker LAB values and reference standards. </li>
+        <li>  Debugged and Fixed ISP pipeline issues involving raw signal clipping, incomplete HDR short exposure fusion, and incorrect gain clipping in Reinhard Tone Mapping.</li>
+
+    </ul>
+</div>
+
+<div class="job">
+    <h3>Software Engineer – Furrow Vision</h3>
+    <p>RFA Engineering • May 2023 – Mar 2025</p>
+    <ul>
+        <li>Developed Camera Switching Feature for Gen5 Display on IPM (Image Processing Module) using MQTT for Furrow Vision Application.</li>
+        <li>Designed and implemented multi-threaded configuration interface supporting multiple display generations.</li>
+        <li>Implemented Image Throttle Algorithm for Application to operate on desired Frequency (Current 1Hz). </li>
+        <li>Integrated License Activation Enablement Feature for the Application for subscription Policy. (CAN protocol).</li>
+        <li>Built MQTT based Communication service to manage and process messages across multiple cameras and display clients.</li>
+        <li>Plugin Creation to Calculate Average Automation Signal for Furrow Vision. (RoboticsWorkbench)</li>
+        <li>Worked on Writing Automation Test cases for the Features Mentioned above for Software Validation using Python.</li>
+        <li>Collaborated with the Verification Champion for the proper testing of the Features and Field Testing.</li>
+        <li>Feature Release Testing and Resolve Defects.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <h3>Senior Engineer – Core Infrastructure Team</h3>
+    <p>John Deere India Pvt Ltd • Jul 2019 – Dec 2021</p>
+    <ul>
+        <li>Optimized color conversion operations from RGB/YCrCb images to NV12 images using Neon Arm Compute Library for the Digital Streaming Service. (Arm Cortex A53) (Low level ML library)</li>
+        <li>Created Media Pipelines using Pipeline based multimedia framework Gstreamer.</li>
+        <li>Implemented OpenGL Common Module Framework to stitch Left and Right Images from Stereo Cameras on Arm Mali 400 GPU, resulted in CPU usage to 220% to 103% and latency from 140ms to 95ms (32%). Developed Custom Shaders for Homography Operations.</li>
+        <li>Worked on Python to write automation test cases for Software Validation and utilized DISDATT tool to facilitate testing.</li>
+        <li>Employed LTTNG for profiling code and optimizing performance. Successfully identified bottlenecks in the code.</li>
+        <li>Implemented Bash scripting to generate code coverage reports with LLVM and automate the task in Jenkins.</li>
+    </ul>
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section class="card">
+    <h2>Education</h2>
+
+<div class="job">
+    <h3>MS in Computer Engineering</h3>
+    <p>University of Texas at Dallas • 2023 • GPA 3.83/4</p>
+</div>
+
+<div class="job">
+    <h3>BTech in Electronics & Communication</h3>
+    <p>NIT Surat • 2019</p>
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="card cta">
+    <h2>Explore My Work</h2>
+    <p>Deep dives into camera systems, ISP pipelines, and perception engineering projects.</p>
+
+<div class="cta-buttons">
+    <a href="blog.html" class="btn">Technical Notes</a>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Prayas Patnaik</p>
+</footer>
+
+<script src="js/dark-mode.js"></script>
+
 </body>
 </html>

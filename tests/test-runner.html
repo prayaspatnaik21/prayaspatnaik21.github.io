@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation System Tests</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #2d2d2d;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .pass {
+            background: #28a745;
+            color: white;
+        }
+        .fail {
+            background: #dc3545;
+            color: white;
+        }
+        .test-title {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .run-tests {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .run-tests:hover {
+            background: #0056b3;
+        }
+        .iframe-container {
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .test-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Animation System Tests 🧪</h1>
+        
+        <div class="test-section">
+            <div class="test-title">Test Instructions</div>
+            <p>Click the button below to run comprehensive tests on the animation system. This will:</p>
+            <ul>
+                <li>Test element detection</li>
+                <li>Test CSS class manipulation</li>
+                <li>Test animation support</li>
+                <li>Test animation timing</li>
+                <li>Test visual changes</li>
+            </ul>
+            
+            <button class="run-tests" onclick="runTestsInIframe()">Run Tests (iframe)</button>
+            <button class="run-tests" onclick="runSimpleTest()" style="background: #28a745; margin-left: 10px;">Run Simple Test</button>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">Test Results</div>
+            <div id="test-results">
+                <p>Click "Run Tests" to see results here...</p>
+            </div>
+        </div>
+        
+        <div class="iframe-container">
+            <div class="test-title">Live Site Preview</div>
+            <iframe src="index.html" class="test-iframe" id="portfolio-frame" title="Portfolio Site"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Listen for messages from iframe
+        window.addEventListener('message', function(event) {
+            // Security check - only accept messages from our iframe
+            if (event.source !== document.getElementById('portfolio-frame').contentWindow) {
+                return;
+            }
+            
+            if (event.data.type === 'testResults') {
+                displayResults(event.data.results);
+            }
+        });
+        
+        function runTestsInIframe() {
+            console.log("=== STARTING TEST RUN ===");
+            const iframe = document.getElementById('portfolio-frame');
+            const resultsDiv = document.getElementById('test-results');
+            
+            if (!iframe) {
+                console.error("❌ IFRAME NOT FOUND");
+                resultsDiv.innerHTML = '<div class="test-result fail">❌ ERROR: iframe not found</div>';
+                return;
+            }
+            
+            resultsDiv.innerHTML = '<p>🔄 Loading portfolio...</p>';
+            
+            // Wait for iframe to load, then inject and run tests
+            iframe.onload = function() {
+                console.log("=== IFRAME LOADED ===");
+                setTimeout(() => {
+                    try {
+                        console.log("=== INJECTING TEST SCRIPT ===");
+                        // Inject test script into iframe
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const testScript = iframeDoc.createElement('script');
+                        testScript.textContent = `
+                            console.log("=== TESTS RUNNING IN IFRAME ===");
+                            try {
+                                ${document.querySelector('script').textContent.replace(/document\.addEventListener\([^)]+)\)/, 'window.parent.postMessage({type: "testResults", results: runAllTests()}, "*");')}
+                            } catch (error) {
+                                console.error("❌ TEST ERROR:", error);
+                                window.parent.postMessage({type: "testResults", results: {error: error.message}}, "*");
+                            }
+                        `;
+                        
+                        iframeDoc.body.appendChild(testScript);
+                        console.log("=== TEST SCRIPT INJECTED ===");
+                        
+                    } catch (error) {
+                        console.error("❌ INJECTION ERROR:", error);
+                        resultsDiv.innerHTML = `<div class="test-result fail">❌ ERROR: ${error.message}</div>`;
+                    }
+                }, 1000);
+            };
+            
+            // Load the main page
+            console.log("=== LOADING MAIN PAGE ===");
+            iframe.src = 'index.html';
+        }
+        
+        function displayResults(results) {
+            let resultsHtml = '<div class="test-title">Test Results:</div>';
+            
+            Object.entries(results).forEach(([test, result]) => {
+                const status = result ? 'pass' : 'fail';
+                const statusText = result ? '✅ PASS' : '❌ FAIL';
+                resultsHtml += `<div class="test-result ${status}">${statusText}: ${test}</div>`;
+            });
+            
+            const allPassed = Object.values(results).every(result => result === true);
+            const overallStatus = allPassed ? 'pass' : 'fail';
+            const overallText = allPassed ? '✅ ALL TESTS PASSED' : '❌ SOME TESTS FAILED';
+            
+            resultsHtml += `<div class="test-result ${overallStatus}"><strong>${overallText}</strong></div>`;
+            document.getElementById('test-results').innerHTML = resultsHtml;
+        }
+        
+        function runSimpleTest() {
+            console.log("=== RUNNING SIMPLE TEST ===");
+            
+            const results = {
+                basicCheck: document.readyState === 'complete',
+                hasConsole: typeof console !== 'undefined',
+                hasDocument: typeof document !== 'undefined',
+                browserSupportsAnimations: CSS.supports('animation'),
+                hasLocalStorage: typeof localStorage !== 'undefined'
+            };
+            
+            console.log("Simple test results:", results);
+            displayResults(results);
+        }
+        
+        // Auto-run tests when page loads
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('Auto-running tests...');
+                // runTestsInIframe();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -4,7 +4,6 @@
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("=== PAGE LOADED ===");
     console.log("Portfolio loaded!");
     
     // Add smooth scroll behavior
@@ -12,9 +11,66 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Trigger greeting animation
     setupGreetingAnimation();
-    
-    console.log("=== SETUP COMPLETE ===");
 });
+
+/**
+ * Test animation system with simple verification
+ */
+function testAnimationSystem() {
+    console.log("=== RUNNING UNIT TEST ===");
+    
+    // Test 1: Check if elements exist
+    const profileImg = document.getElementById('profileImg');
+    const greetingMessage = document.getElementById('greetingMessage');
+    
+    if (!profileImg) {
+        console.error("❌ FAIL: Profile image not found");
+        return;
+    }
+    if (!greetingMessage) {
+        console.error("❌ FAIL: Greeting message not found");
+        return;
+    }
+    
+    console.log("✅ PASS: Both elements found");
+    
+    // Test 2: Check if CSS classes can be added
+    try {
+        profileImg.classList.add('test-class');
+        greetingMessage.classList.add('test-class');
+        
+        if (profileImg.classList.contains('test-class')) {
+            console.log("✅ PASS: Can add classes to profile image");
+        } else {
+            console.error("❌ FAIL: Cannot add classes to profile image");
+        }
+        
+        if (greetingMessage.classList.contains('test-class')) {
+            console.log("✅ PASS: Can add classes to greeting message");
+        } else {
+            console.error("❌ FAIL: Cannot add classes to greeting message");
+        }
+        
+        // Clean up test classes
+        profileImg.classList.remove('test-class');
+        greetingMessage.classList.remove('test-class');
+        
+    } catch (error) {
+        console.error("❌ FAIL: Error adding classes:", error);
+    }
+    
+    // Test 3: Check if CSS animations exist
+    const testElement = document.createElement('div');
+    testElement.style.animation = 'wave 0.6s ease-in-out 5';
+    
+    if (testElement.style.animation) {
+        console.log("✅ PASS: CSS animations supported");
+    } else {
+        console.error("❌ FAIL: CSS animations not supported");
+    }
+    
+    console.log("=== UNIT TEST COMPLETE ===");
+}
 
 /**
  * Setup smooth scrolling for anchor links
@@ -35,45 +91,23 @@ function setupSmoothScroll() {
  * Setup greeting animation on page load
  */
 function setupGreetingAnimation() {
-    console.log("=== SETTING UP GREETING ANIMATION ===");
-    
     const profileImg = document.getElementById('profileImg');
     const greetingMessage = document.getElementById('greetingMessage');
     
-    console.log("Profile img found:", !!profileImg);
-    console.log("Greeting message found:", !!greetingMessage);
-    
     if (profileImg && greetingMessage) {
-        console.log("=== BOTH ELEMENTS FOUND, STARTING ANIMATION ===");
-        
-        // Test: Add a simple class change immediately
-        profileImg.style.border = "5px solid red";
-        console.log("Added red border test");
-        
         // Start the profile image animation
         setTimeout(() => {
-            console.log("=== ADDING ANIMATE-GREETING CLASS ===");
             profileImg.classList.add('animate-greeting');
-            console.log("Current classes:", profileImg.className);
             
             // Show the greeting message
             setTimeout(() => {
-                console.log("=== ADDING SHOW CLASS TO GREETING ===");
                 greetingMessage.classList.add('show');
-                console.log("Greeting message classes:", greetingMessage.className);
                 
                 // Hide greeting after 4 seconds
                 setTimeout(() => {
-                    console.log("=== REMOVING SHOW CLASS FROM GREETING ===");
                     greetingMessage.classList.remove('show');
                 }, 4000);
             }, 800);
         }, 500);
-    } else {
-        console.log("=== MISSING ELEMENTS ===");
-        console.log("profileImg:", profileImg);
-        console.log("greetingMessage:", greetingMessage);
     }
-    
-    console.log("=== GREETING SETUP COMPLETE ===");
 }
