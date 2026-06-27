@@ -1,0 +1,35 @@
+title: Prayas Patnaik
+description: Perception Engineer | Camera ISP | Image Quality Optimization
+author: Prayas Patnaik
+email: prayaspatnaik21@gmail.com
+url: https://prayaspatnaik21.github.io
+
+# Jekyll settings
+theme: jekyll-theme-minimal
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .gitignore
+  - README.md
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
