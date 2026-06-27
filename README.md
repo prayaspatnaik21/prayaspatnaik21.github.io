@@ -1,197 +1,168 @@
 # Prayas Patnaik - Portfolio Website
 
-A modern, responsive portfolio with dark mode support, animated greeting messages, and a scalable blog architecture.
+A modern, responsive portfolio built with **Jekyll** and hosted on **GitHub Pages**.
+
+## 🚀 Quick Start
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/prayaspatnaik21/prayaspatnaik21.github.io.git
+   cd prayaspatnaik21.github.io
+   ```
+
+2. **Install dependencies**
+   ```bash
+   gem install bundler
+   bundle install
+   ```
+
+3. **Run the local server**
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. **Open in browser**
+   - Visit `http://localhost:4000`
 
 ## 📁 Project Structure
 
 ```
 .
-├── css/
-│   ├── styles.css              # All styling (responsive, dark mode, components)
-│   └── ...
-├── js/
-│   ├── dark-mode.js            # Dark mode toggle logic
-│   └── script.js               # Main app utilities, smooth scroll, greeting animations
-├── blog/
-│   └── template.html           # Template for creating new blog posts
-├── images/
-│   ├── prayas.jpg              # Profile image
-│   ├── projects/               # Project images
-│   └── blog/                   # Blog post images
+├── _layouts/              # Page templates (default.html, post.html)
+├── _posts/                # Blog posts (Markdown files)
+├── _config.yml            # Jekyll configuration
 ├── assets/
-│   └── resume.docx             # Resume file
-├── index.html                  # Home page (main portfolio)
-├── work.html                   # Work experience / detailed roles
-├── blog.html                   # Blog listing page
-├── script.js                   # Legacy script (dark mode toggle)
-├── styles.css                  # Legacy stylesheet
-└── README.md                   # This file
+│   ├── css/
+│   │   └── style.css      # Main stylesheet
+│   └── js/
+│       └── main.js        # JavaScript utilities
+├── index.md               # Homepage
+├── about.md               # About page
+├── portfolio.md           # Portfolio/projects page
+├── blog.md                # Blog listing
+├── contact.md             # Contact page
+├── Gemfile                # Ruby dependencies
+└── README.md              # This file
 ```
 
-## 🎯 Features
+## 📝 Adding Blog Posts
 
-- **Responsive Design**: Fully responsive for desktop, tablet, and mobile devices
-- **Dark Mode**: Toggle between light and dark themes with persistent storage
-- **Animated Greeting**: Profile image animation with greeting message on home page
-- **Blog System**: Easy-to-use blog post template and grid layout
-- **Professional Typography**: Clean, readable fonts with proper contrast
-- **Smooth Scrolling**: Smooth navigation between sections
-- **CSS Variables**: Centralized color and styling management
+1. **Create a new file** in `_posts/` with format: `YYYY-MM-DD-title.md`
+   ```
+   _posts/2025-03-15-my-new-post.md
+   ```
 
-## 🚀 How to Add Blog Posts
+2. **Add frontmatter** (metadata) at the top:
+   ```yaml
+   ---
+   layout: post
+   title: My Blog Post Title
+   date: 2025-03-15
+   category: "Category Name"
+   reading_time: 5
+   excerpt: "Brief description of your post"
+   ---
+   ```
 
-### Step 1: Create a new blog post
-1. Copy `blog/template.html` and rename it (e.g., `blog/my-first-post.html`)
-2. Edit the post with your content:
-   - Update `<title>` and `<meta description>`
-   - Update `<h1>` with your post title
-   - Update the post metadata (date, reading time, category)
-   - Write your content in the `<div class="post-content">`
+3. **Write your content** in Markdown below the frontmatter
 
-### Step 2: Add the blog post to the listing
-1. Open `blog.html`
-2. Add a new blog card in the `.blog-grid` section:
+4. **Commit and push**:
+   ```bash
+   git add _posts/
+   git commit -m "Add blog post: My Blog Post Title"
+   git push
+   ```
+
+The post will automatically appear on the blog page!
+
+## 🎨 Customizing the Theme
+
+### Update Site Information
+Edit `_config.yml`:
+```yaml
+title: Your Name
+description: Your tagline
+author: Your Name
+email: your@email.com
+url: https://yoursite.github.io
+```
+
+### Modify Styling
+Edit `assets/css/style.css`:
+- Color variables at the top
+- Global styles
+- Component-specific styles
+
+### Add/Edit Pages
+1. Create a new `.md` file in the root directory
+2. Add frontmatter with layout: `default`
+3. Add link to navigation in `_layouts/default.html`
+
+## 🔗 Navigation
+
+The main navigation is in `_layouts/default.html`. To add new pages:
 
 ```html
-<article class="blog-card">
-    <div class="blog-card-cover">🎯</div>
-    <div class="blog-card-content">
-        <h3>Your Blog Post Title</h3>
-        <div class="blog-card-meta">February 21, 2025</div>
-        <p>Brief description of your blog post...</p>
-        <a href="blog/my-first-post.html">Read More →</a>
-    </div>
-</article>
+<li><a href="{{ site.url }}/new-page/">New Page</a></li>
 ```
 
-### Step 3: Commit to Git
-```bash
-git add blog/my-first-post.html blog.html
-git commit -m "Add blog post: my-first-post"
-git push
-```
+## 🚀 Deployment
 
-## 🛠️ Local Development
+GitHub Pages automatically builds and deploys your site when you push to the `main` branch.
 
-### Start a local server:
-```bash
-cd /path/to/portfolio
-python3 -m http.server 8000
-```
+**Steps:**
+1. Make changes locally
+2. Test with `bundle exec jekyll serve`
+3. Commit and push to `main` branch
+4. Visit your site: `https://prayaspatnaik21.github.io`
 
-Then open `http://localhost:8000` in your browser.
-
-## 🎨 Customizing Colors
-
-All colors use CSS variables in `css/styles.css`:
-
-```css
-:root {
-    --bg-primary: #f4f4f4;      /* Light mode background */
-    --bg-secondary: #ffffff;    /* Light mode card background */
-    --text-primary: #333333;    /* Light mode text */
-    --text-secondary: #666666;  /* Light mode secondary text */
-    --border-color: #333333;    /* Border color */
-    --box-shadow: rgba(0,0,0,0.1);  /* Shadow color */
-    --job-bg: #f9f9f9;          /* Job card background */
-    --job-border: blue;         /* Job card border */
-    --job-text: darkblue;       /* Job title color */
-    --nav-hover: #e0e0e0;       /* Navigation hover color */
-}
-
-body.dark-mode {
-    --bg-primary: #1e1e1e;      /* Dark mode background */
-    --bg-secondary: #2d2d2d;    /* Dark mode card background */
-    --text-primary: #e0e0e0;    /* Dark mode text */
-    --text-secondary: #b0b0b0;  /* Dark mode secondary text */
-    --border-color: #e0e0e0;    /* Dark mode border */
-    --box-shadow: rgba(0,0,0,0.3);  /* Dark mode shadow */
-    --job-bg: #3a3a3a;          /* Dark mode job card background */
-    --job-border: #6699ff;      /* Dark mode job border */
-    --job-text: #99ccff;        /* Dark mode job title */
-    --nav-hover: #444444;       /* Dark mode hover */
-}
-```
-
-To change colors, update these variables in `css/styles.css`.
-
-## 🔧 Adding More Pages
-
-To add new pages (e.g., Projects, About):
-1. Create a new `.html` file
-2. Copy the navigation from an existing page (`index.html`, `work.html`, or `blog.html`)
-3. Link to `css/styles.css`
-4. Add scripts for dark mode and utilities:
-   ```html
-   <script src="js/dark-mode.js"></script>
-   <script src="js/script.js"></script>
-   ```
-5. Use existing CSS classes (`.card`, `.job`, `.blog-card`, etc.) for consistency
-
-## 📋 Page Structure
-
-### index.html (Home Page)
-- Hero section with profile image and animated greeting
-- "What I Do" section
-- Professional experience summary
-- Education section
-- Call-to-action linking to blog
-
-### work.html (Work Experience)
-- Detailed professional experience with multiple roles
-- Role descriptions with bullet points
-- Companies, dates, and locations
-
-### blog.html (Blog Listing)
-- Grid layout for blog cards
-- Card template with emoji/icon cover
-- Links to individual blog posts
-
-## 📊 Git Workflow (Recommended)
+## 📋 Useful Commands
 
 ```bash
-# Start a new branch for each feature
-git checkout -b feature/blog-post-title
+# Build the site
+bundle exec jekyll build
 
-# Make changes and test
-# ...
+# Serve locally with live reload
+bundle exec jekyll serve
 
-# Commit with meaningful messages
-git add .
-git commit -m "Add blog post: Understanding MQTT in Embedded Systems"
+# Clean build (remove old files)
+bundle exec jekyll clean
 
-# Push to GitHub
-git push origin feature/blog-post-title
-
-# Create a Pull Request on GitHub (optional)
-# Then merge to main branch
+# Build with drafts
+bundle exec jekyll serve --drafts
 ```
 
-## 🚀 Deploying to GitHub Pages
+## 💡 Tips
 
-1. Push to the `main` branch
-2. GitHub Pages automatically deploys from the root folder
-3. Visit `https://prayaspatnaik21.github.io`
+- **Markdown syntax**: Use [GitHub Flavored Markdown](https://github.github.com/gfm/)
+- **Code blocks**: Use triple backticks with language: ` ```python `
+- **Links**: Use `[text](url)` format
+- **Images**: Use `![alt text](image-url)`
+- **Live preview**: Changes are reflected automatically when using `jekyll serve`
 
-## 🎯 Key Technologies
+## 🎯 File Types
 
-- **HTML5**: Semantic markup structure
-- **CSS3**: Modern styling with variables, animations, and responsive design
-- **JavaScript**: Dark mode toggle, smooth scrolling, and greeting animations
-- **GitHub Pages**: Automatic deployment
+- **Markdown (.md)**: For pages and blog posts
+- **HTML (.html)**: For complex layouts (in `_layouts/`)
+- **YAML (.yml)**: For configuration and frontmatter
+- **CSS (.css)**: For styling
+- **JS (.js)**: For interactivity
 
-## 📝 File Organization Notes
+## 📚 Resources
 
-- **Legacy files** (`script.js`, `styles.css` in root): These are older versions. The main stylesheets are in `css/styles.css` and `js/` folder.
-- **Dark mode**: Implemented in `js/dark-mode.js` using localStorage for persistence
-- **Animations**: CSS animations for greeting message (`popOut`, `fadeInScale`, `wave`, `bounce`)
+- [Jekyll Documentation](https://jekyllrb.com/docs/)
+- [GitHub Pages Guide](https://docs.github.com/en/pages)
+- [Markdown Guide](https://www.markdownguide.org/)
+- [Liquid Template Documentation](https://shopify.github.io/liquid/)
 
 ## 🔗 Links
 
-- **GitHub**: https://github.com/prayaspatnaik21
-- **LinkedIn**: https://www.linkedin.com/in/prayas-patnaik-245a49123/
-- **Email**: prayaspatnaik21@gmail.com
+- **GitHub**: [prayaspatnaik21](https://github.com/prayaspatnaik21)
+- **LinkedIn**: [Prayas Patnaik](https://www.linkedin.com/in/prayas-patnaik-245a49123/)
+- **Email**: [prayaspatnaik21@gmail.com](mailto:prayaspatnaik21@gmail.com)
 
 ---
 
-**Last Updated**: June 2026
+**Built with Jekyll & GitHub Pages** | Last Updated: June 2026
