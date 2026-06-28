@@ -1,0 +1,19 @@
+current directory: /Users/prayaspatnaik/opt/anaconda3/Portfolio/prayaspatnaik21.github.io/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
+/opt/homebrew/opt/ruby@3.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/prayaspatnaik/opt/anaconda3/Portfolio/prayaspatnaik21.github.io/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20260628-11289-wofcx0 sitelibdir\=./.gem.20260628-11289-wofcx0 clean
+
+current directory: /Users/prayaspatnaik/opt/anaconda3/Portfolio/prayaspatnaik21.github.io/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20260628-11289-wofcx0 sitelibdir\=./.gem.20260628-11289-wofcx0
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/prayaspatnaik/opt/anaconda3/Portfolio/prayaspatnaik21.github.io/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20260628-11289-wofcx0 sitelibdir\=./.gem.20260628-11289-wofcx0 install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20260628-11289-wofcx0/racc
+
+current directory: /Users/prayaspatnaik/opt/anaconda3/Portfolio/prayaspatnaik21.github.io/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20260628-11289-wofcx0 sitelibdir\=./.gem.20260628-11289-wofcx0 clean
