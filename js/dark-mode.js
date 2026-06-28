@@ -8,14 +8,16 @@ function initializeDarkMode() {
     
     if (!darkModeToggle) return;
     
-    // Check for saved dark mode preference or default to false (light/yellow is default)
-    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    // Default to dark mode unless the visitor explicitly chose light mode.
+    const savedPreference = localStorage.getItem("darkMode");
+    const isDarkMode = savedPreference === null ? true : savedPreference === "true";
     
     // Apply dark mode on load if it was previously enabled
     if (isDarkMode) {
         document.body.classList.add("dark-mode");
         darkModeToggle.textContent = "☀️";
     } else {
+        document.body.classList.remove("dark-mode");
         darkModeToggle.textContent = "🌙";
     }
     

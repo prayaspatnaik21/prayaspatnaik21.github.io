@@ -4,8 +4,6 @@
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Portfolio loaded!");
-    
     // Add smooth scroll behavior
     setupSmoothScroll();
     
@@ -95,18 +93,18 @@ function setupGreetingAnimation() {
     const greetingMessage = document.getElementById('greetingMessage');
     
     if (profileImg && greetingMessage) {
-        // Start the profile image animation
+        // Add a subtle entrance for the profile image.
         setTimeout(() => {
             profileImg.classList.add('animate-greeting');
             
-            // Show the greeting message
+            // Show the short personal badge.
             setTimeout(() => {
                 greetingMessage.classList.add('show');
                 
-                // Hide greeting after 4 seconds
+                // Keep the focus on the page content after the intro.
                 setTimeout(() => {
                     greetingMessage.classList.remove('show');
-                }, 4000);
+                }, 4500);
             }, 800);
         }, 500);
     }
