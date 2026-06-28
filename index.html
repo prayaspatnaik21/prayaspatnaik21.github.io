@@ -73,56 +73,34 @@
     </ul>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- SELECTED HIGHLIGHTS -->
 
 <section class="card">
-    <h2>Professional Experience</h2>
+    <h2>Selected Highlights</h2>
+    <div class="highlight-grid">
+        <article class="highlight">
+            <span class="highlight-label">Camera ISP</span>
+            <h3>Image quality tuning and automation</h3>
+            <p>Building tools and pipelines for ISP tuning, exposure control, tone mapping, SNR, Delta-E, eSFR charts, ColorChecker analysis, and motion blur evaluation.</p>
+        </article>
 
-<div class="job">
-    <h3>Software Engineer – Imaging Team</h3>
-    <p>RFA Engineering • Mar 2025 – Present</p>
-    <ul>
-        <li>Working on Image Quality Optimization and ISP Tuning for image sensors.</li>
-        <li>Designed PWL and Auto Exposure Diagram for the Sony Camera.</li>
-        <li> Optimized Reinhard Tone Mapping in the Camera ISP pipeline by LUT Decimation.</li>
-        <li>Automated perception quality metrics (SNR, Delta-E) calculations using eSFR Charts and ColorChecker boards for camera evaluation pipelines.</li>
-        <li>Developed a GUI Based Tuning application to configure and validate sensor and ISP parameters.</li>
-        <li> Integrated Exposure Control Integration for Onsemi image Sensor within the application pipeline.</li>
-        <li> Developed and automated Motion blur analysis pipeline, computing Blur Edge Width using Siemens start charts across varying exposure times.</li>
-        <li> Designed and optimized an automated Color Correction Matrix (CCM) by minimizing error between 24 patch Color Checker LAB values and reference standards. </li>
-        <li>  Debugged and Fixed ISP pipeline issues involving raw signal clipping, incomplete HDR short exposure fusion, and incorrect gain clipping in Reinhard Tone Mapping.</li>
+        <article class="highlight">
+            <span class="highlight-label">Embedded Systems</span>
+            <h3>Camera features for production workflows</h3>
+            <p>Developed camera switching, MQTT communication, CAN-backed license enablement, configuration interfaces, and validation automation for display and perception systems.</p>
+        </article>
 
-    </ul>
-</div>
+        <article class="highlight">
+            <span class="highlight-label">Performance</span>
+            <h3>GPU and media pipeline optimization</h3>
+            <p>Worked with OpenGL shaders, GStreamer pipelines, ARM Neon, profiling, and automation to improve image processing performance on embedded platforms.</p>
+        </article>
+    </div>
 
-<div class="job">
-    <h3>Software Engineer – Furrow Vision</h3>
-    <p>RFA Engineering • May 2023 – Mar 2025</p>
-    <ul>
-        <li>Developed Camera Switching Feature for Gen5 Display on IPM (Image Processing Module) using MQTT for Furrow Vision Application.</li>
-        <li>Designed and implemented multi-threaded configuration interface supporting multiple display generations.</li>
-        <li>Implemented Image Throttle Algorithm for Application to operate on desired Frequency (Current 1Hz). </li>
-        <li>Integrated License Activation Enablement Feature for the Application for subscription Policy. (CAN protocol).</li>
-        <li>Built MQTT based Communication service to manage and process messages across multiple cameras and display clients.</li>
-        <li>Plugin Creation to Calculate Average Automation Signal for Furrow Vision. (RoboticsWorkbench)</li>
-        <li>Worked on Writing Automation Test cases for the Features Mentioned above for Software Validation using Python.</li>
-        <li>Collaborated with the Verification Champion for the proper testing of the Features and Field Testing.</li>
-        <li>Feature Release Testing and Resolve Defects.</li>
-    </ul>
-</div>
-
-<div class="job">
-    <h3>Senior Engineer – Core Infrastructure Team</h3>
-    <p>John Deere India Pvt Ltd • Jul 2019 – Dec 2021</p>
-    <ul>
-        <li>Optimized color conversion operations from RGB/YCrCb images to NV12 images using Neon Arm Compute Library for the Digital Streaming Service. (Arm Cortex A53) (Low level ML library)</li>
-        <li>Created Media Pipelines using Pipeline based multimedia framework Gstreamer.</li>
-        <li>Implemented OpenGL Common Module Framework to stitch Left and Right Images from Stereo Cameras on Arm Mali 400 GPU, resulted in CPU usage to 220% to 103% and latency from 140ms to 95ms (32%). Developed Custom Shaders for Homography Operations.</li>
-        <li>Worked on Python to write automation test cases for Software Validation and utilized DISDATT tool to facilitate testing.</li>
-        <li>Employed LTTNG for profiling code and optimizing performance. Successfully identified bottlenecks in the code.</li>
-        <li>Implemented Bash scripting to generate code coverage reports with LLVM and automate the task in Jenkins.</li>
-    </ul>
-</div>
+    <div class="section-actions">
+        <a href="work.html" class="btn">View Full Work</a>
+        <a href="blog.html" class="btn btn-secondary">Read Technical Notes</a>
+    </div>
 
 </section>
 

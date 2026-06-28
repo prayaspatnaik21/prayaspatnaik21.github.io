@@ -356,6 +356,53 @@ main {
 }
 
 /* ===================================
+   HOMEPAGE HIGHLIGHTS
+   =================================== */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.highlight {
+    background-color: var(--job-bg);
+    border: 1px solid rgba(255, 215, 0, 0.34);
+    border-radius: 8px;
+    padding: 1.25rem;
+    min-height: 100%;
+}
+
+.highlight-label {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    color: var(--job-text);
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.highlight h3 {
+    margin: 0 0 0.75rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.highlight p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.section-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* ===================================
    BLOG CARDS
    =================================== */
 .blog-grid {
@@ -555,6 +602,12 @@ footer p {
     transform: scale(1.05);
 }
 
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--job-border);
+    color: var(--text-primary);
+}
+
 /* ===================================
    RESPONSIVE DESIGN - TABLET
    =================================== */
@@ -593,6 +646,10 @@ footer p {
     }
 
     .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-grid {
         grid-template-columns: 1fr;
     }
 
@@ -690,6 +747,14 @@ footer p {
     .blog-section,
     .card {
         padding: 1rem;
+    }
+
+    .section-actions {
+        flex-direction: column;
+    }
+
+    .section-actions .btn {
+        text-align: center;
     }
 }
 
