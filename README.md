@@ -68,8 +68,7 @@ Static pages served by GitHub Pages
 │   ├── default.html            # Shared Jekyll page wrapper
 │   └── post.html               # Layout for individual blog posts
 ├── blog/
-│   ├── template.html           # Old static HTML post template
-│   └── getting-started-camera-isp.html
+│   └── template.html           # Old static HTML post template kept for reference
 └── tests/
     └── test-runner.html        # Browser-based test page
 ```
