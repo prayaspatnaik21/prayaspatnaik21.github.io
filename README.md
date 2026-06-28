@@ -417,6 +417,27 @@ excerpt: "Notes on exposure control, image brightness, and tuning tradeoffs."
 ---
 ```
 
+If the post contains LaTeX-style math, add:
+
+```yaml
+math: true
+```
+
+Then you can write inline math:
+
+```markdown
+$L_{sharp}(x)$
+```
+
+or display math:
+
+```markdown
+$$
+L_{sharp}(x) = L(x) - \frac{k_{sharp}}{2}
+\left(L(x - v) + L(x + v)\right)
+$$
+```
+
 Then write the post in Markdown:
 
 ```markdown

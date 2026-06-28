@@ -5,6 +5,7 @@ date: 2026-06-28
 category: "Image Processing"
 reading_time: 5
 excerpt: "Working notes on image sharpening, edge contrast, and MTF."
+math: true
 ---
 
 # Sharpening
@@ -20,7 +21,7 @@ excerpt: "Working notes on image sharpening, edge contrast, and MTF."
     2. In other words , subtract shifted copies of the signal.
 
 3. Mathematical Intuition
-    1. $L_{sharp}(x) = L(x) - \frac{k_{sharp}}{2} \left( L(x - v) + L(x + v) \right)$ (1D Exampe)
+    1. $L_{sharp}(x) = L(x) - \frac{k_{sharp}}{2} \left( L(x - v) + L(x + v) \right)$ (1D Example)
     2. $L_{sharp}(x)$ - pixel value at originally at position x.
     3. $k_{sharp}$ - sharpening strength ( 0 = no sharpening , and higher -> more)
     4. V = shift distance in the same units as x (for now we can in pixel values)
