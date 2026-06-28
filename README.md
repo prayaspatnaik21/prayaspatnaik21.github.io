@@ -55,7 +55,9 @@ Static pages served by GitHub Pages
 │   ├── dark-mode.js            # Dark/light mode toggle
 │   └── script.js               # Homepage animation and small interactions
 ├── images/
-│   └── prayas.jpg              # Profile image
+│   ├── prayas.jpg              # Original full-resolution profile photo
+│   ├── prayas-profile-420.jpg  # Optimized profile crop for normal screens
+│   └── prayas-profile-840.jpg  # Optimized profile crop for retina screens
 ├── assets/
 │   └── resume.docx             # Resume linked from navigation
 ├── _posts/
@@ -91,7 +93,8 @@ Important related files:
 - Styling comes from `css/styles.css`
 - Dark mode comes from `js/dark-mode.js`
 - Greeting/profile animation comes from `js/script.js`
-- Profile photo is `images/prayas.jpg`
+- Original profile photo is `images/prayas.jpg`
+- Rendered homepage profile images are `images/prayas-profile-420.jpg` and `images/prayas-profile-840.jpg`
 
 ### `work.html`
 
@@ -288,7 +291,14 @@ Current file:
 images/prayas.jpg
 ```
 
-If you replace the profile photo, keep the same filename or update `index.html`.
+If you replace the profile photo, keep `images/prayas.jpg` as the original source and regenerate the optimized profile crops:
+
+```text
+images/prayas-profile-420.jpg
+images/prayas-profile-840.jpg
+```
+
+The homepage uses `srcset` in `index.html` so high-DPI screens get the sharper 840px crop.
 
 ## Common Changes
 
@@ -659,6 +669,7 @@ Site-wide styles               -> css/styles.css
 Dark mode behavior             -> js/dark-mode.js
 Homepage animation             -> js/script.js
 Resume file                    -> assets/resume.docx
-Profile image                  -> images/prayas.jpg
+Original profile image         -> images/prayas.jpg
+Rendered profile crops         -> images/prayas-profile-420.jpg, images/prayas-profile-840.jpg
 Jekyll settings                -> _config.yml
 ```

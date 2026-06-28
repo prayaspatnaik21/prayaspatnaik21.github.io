@@ -34,7 +34,17 @@
 <section class="header">
 
 <div class="profile-container">
-    <img src="images/prayas.jpg" class="profile-img" id="profileImg" alt="Prayas Patnaik">
+    <img
+        src="images/prayas-profile-420.jpg"
+        srcset="images/prayas-profile-420.jpg 420w, images/prayas-profile-840.jpg 840w"
+        sizes="(max-width: 480px) 120px, (max-width: 768px) 150px, 210px"
+        class="profile-img"
+        id="profileImg"
+        alt="Prayas Patnaik"
+        width="210"
+        height="210"
+        decoding="async"
+        fetchpriority="high">
     <div class="greeting-message" id="greetingMessage">
         <span class="wave-hand">👋</span>
         <span class="greeting-text">Hello!</span>
