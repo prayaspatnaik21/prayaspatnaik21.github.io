@@ -17,9 +17,10 @@
     <div class="nav-container">
         <a href="index.html" class="nav-brand">Prayas Patnaik</a>
         <ul class="nav-links">
+            <li><a href="work.html">Work</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="assets/resume.docx" target="_blank">Resume</a></li>
-            <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+            <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button></li>
         </ul>
     </div>
 </nav>
@@ -30,7 +31,13 @@
 
 <section class="header">
 
-<img src="images/prayas.jpg" class="profile-img" alt="Prayas Patnaik">
+<div class="profile-container">
+    <img src="images/prayas.jpg" class="profile-img" id="profileImg" alt="Prayas Patnaik">
+    <div class="greeting-message" id="greetingMessage">
+        <span class="wave-hand">👋</span>
+        <span class="greeting-text">Hello!</span>
+    </div>
+</div>
 
 <h1>Prayas Patnaik</h1>
 

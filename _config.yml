@@ -5,7 +5,6 @@ email: prayaspatnaik21@gmail.com
 url: https://prayaspatnaik21.github.io
 
 # Jekyll settings
-theme: jekyll-theme-minimal
 markdown: kramdown
 plugins:
   - jekyll-feed

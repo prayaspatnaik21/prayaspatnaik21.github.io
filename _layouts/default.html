@@ -3,50 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% seo %}
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>{{ page.title }} - Prayas Patnaik</title>
+    <link rel="stylesheet" href="{{ site.url }}/css/styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-brand">
-                <a href="{{ site.url }}">{{ site.title }}</a>
-            </div>
-            <ul class="navbar-menu">
-                <li><a href="{{ site.url }}/">Home</a></li>
-                <li><a href="{{ site.url }}/about/">About</a></li>
-                <li><a href="{{ site.url }}/portfolio/">Portfolio</a></li>
-                <li><a href="{{ site.url }}/blog/">Blog</a></li>
-                <li><a href="{{ site.url }}/contact/">Contact</a></li>
+    <nav>
+        <div class="nav-container">
+            <a href="{{ site.url }}/index.html" class="nav-brand">Prayas Patnaik</a>
+            <ul class="nav-links">
+                <li><a href="{{ site.url }}/index.html">Home</a></li>
+                <li><a href="{{ site.url }}/work.html">Work</a></li>
+                <li><a href="{{ site.url }}/blog.html">Blog</a></li>
+                <li><a href="{{ site.url }}/assets/resume.docx" target="_blank">Resume</a></li>
+                <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="container">
         {{ content }}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="https://github.com/prayaspatnaik21" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/prayas-patnaik-245a49123/" target="_blank" rel="noopener">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:prayaspatnaik21@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p>&copy; 2026 {{ site.author }}. All rights reserved.</p>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/prayaspatnaik21" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/prayas-patnaik-245a49123/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:prayaspatnaik21@gmail.com">Email</a>
         </div>
+        <p>&copy; 2026 Prayas Patnaik</p>
     </footer>
 
-    <script src="{{ site.url }}/assets/js/main.js"></script>
+    <script src="{{ site.url }}/js/dark-mode.js"></script>
 </body>
 </html>

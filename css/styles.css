@@ -2,29 +2,33 @@
    VARIABLES & THEME
    =================================== */
 :root {
-    --bg-primary: #f4f4f4;
-    --bg-secondary: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --border-color: #333333;
-    --box-shadow: rgba(0,0,0,0.1);
-    --job-bg: #f9f9f9;
-    --job-border: blue;
-    --job-text: darkblue;
-    --nav-hover: #e0e0e0;
+    --bg-primary: #ffffff;
+    --bg-secondary: #fffef5;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --border-color: #1a1a1a;
+    --box-shadow: rgba(0,0,0,0.08);
+    --job-bg: #fffdf0;
+    --job-border: #ffd700;
+    --job-text: #b8860b;
+    --nav-hover: #fff3b0;
+    --nav-bg: #ffd700;
+    --nav-text: #1a1a1a;
 }
 
 body.dark-mode {
-    --bg-primary: #1e1e1e;
-    --bg-secondary: #2d2d2d;
-    --text-primary: #e0e0e0;
-    --text-secondary: #b0b0b0;
-    --border-color: #e0e0e0;
-    --box-shadow: rgba(0,0,0,0.3);
-    --job-bg: #3a3a3a;
-    --job-border: #6699ff;
-    --job-text: #99ccff;
-    --nav-hover: #444444;
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b8b8b8;
+    --border-color: #ffd700;
+    --box-shadow: rgba(0,0,0,0.4);
+    --job-bg: #1f2940;
+    --job-border: #ffd700;
+    --job-text: #ffed4e;
+    --nav-hover: #2a2a4a;
+    --nav-bg: #ffd700;
+    --nav-text: #1a1a1a;
 }
 
 /* ===================================
@@ -52,7 +56,7 @@ body {
    NAVIGATION
    =================================== */
 nav {
-    background-color: var(--bg-secondary);
+    background-color: var(--nav-bg);
     box-shadow: 0 2px 5px var(--box-shadow);
     position: sticky;
     top: 0;
@@ -73,12 +77,13 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--nav-text);
     transition: color 0.3s;
 }
 
 .nav-brand:hover {
-    color: var(--job-border);
+    color: var(--nav-text);
+    opacity: 0.7;
 }
 
 .nav-links {
@@ -91,7 +96,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-primary);
+    color: var(--nav-text);
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -622,4 +627,47 @@ footer p {
     .card {
         padding: 1rem;
     }
+}
+
+/* ===================================
+   CONTACT LINKS
+   =================================== */
+.contact {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.contact a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contact a:hover {
+    color: var(--job-border);
+    text-decoration: underline;
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+.cta {
+    text-align: center;
+}
+
+.cta h2 {
+    margin-bottom: 0.5rem;
+}
+
+.cta p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
