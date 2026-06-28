@@ -476,7 +476,7 @@ Recommended:
 
 ```bash
 bundle install
-bundle exec jekyll serve --livereload
+bundle exec jekyll serve
 ```
 
 Open:
@@ -485,10 +485,26 @@ Open:
 http://localhost:4000
 ```
 
+On this Mac, the default `ruby`/`bundle` may point to Homebrew Ruby 4.x, which is too new for the current GitHub Pages dependency set. Homebrew Ruby 3.2 is installed and works with this repo.
+
+Use this command if the generic `bundle exec jekyll serve` fails:
+
+```bash
+BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby@3.2/bin/bundle exec /opt/homebrew/opt/ruby@3.2/bin/ruby -S jekyll serve --host 127.0.0.1 --port 4001
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4001/
+```
+
+Jekyll will rebuild when files change. Refresh the browser to see the latest output.
+
 Preview drafts too:
 
 ```bash
-bundle exec jekyll serve --livereload --drafts
+BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby@3.2/bin/bundle exec /opt/homebrew/opt/ruby@3.2/bin/ruby -S jekyll serve --drafts --host 127.0.0.1 --port 4001
 ```
 
 This repo includes:
@@ -500,10 +516,18 @@ This repo includes:
 set to:
 
 ```text
-3.3.6
+3.2.11
 ```
 
 Use Ruby 3.x for local Jekyll builds. GitHub Pages' current Jekyll dependency set is not compatible with Ruby 4.x.
+
+Verified locally:
+
+```text
+Ruby: 3.2.11 from /opt/homebrew/opt/ruby@3.2/bin/ruby
+Preview URL: http://127.0.0.1:4001/
+Verified pages: /, /blog.html, /blog/sharpening/
+```
 
 ## GitHub Pages Setup
 
@@ -611,12 +635,12 @@ That is expected. Python does not run Jekyll.
 Use:
 
 ```bash
-bundle exec jekyll serve --livereload
+BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby@3.2/bin/bundle exec /opt/homebrew/opt/ruby@3.2/bin/ruby -S jekyll serve --host 127.0.0.1 --port 4001
 ```
 
 ### Local Jekyll fails with Ruby version errors
 
-Use Ruby 3.x. The repo recommends Ruby 3.3.6 through `.ruby-version`.
+Use Ruby 3.x. This machine has a working Ruby 3.2 install at `/opt/homebrew/opt/ruby@3.2/bin/ruby`.
 
 Ruby is only a local build tool here. The browser still receives plain HTML/CSS/JS.
 
