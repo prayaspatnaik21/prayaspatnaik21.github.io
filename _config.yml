@@ -3,23 +3,20 @@ description: Perception Engineer | Camera ISP | Image Quality Optimization
 author: Prayas Patnaik
 email: prayaspatnaik21@gmail.com
 url: https://prayaspatnaik21.github.io
+baseurl: ""
 
 # Jekyll settings
 markdown: kramdown
+permalink: /blog/:title/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
-# Collections
-collections:
-  posts:
-    output: true
-    permalink: /blog/:title/
 
 # Exclude files
 exclude:
   - vendor
   - vendor/bundle
+  - blog/template.html
   - Gemfile
   - Gemfile.lock
   - node_modules

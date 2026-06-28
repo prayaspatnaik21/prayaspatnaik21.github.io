@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} - Prayas Patnaik</title>
-    <link rel="stylesheet" href="{{ site.url }}/css/styles.css">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    {% seo title=false %}
+    <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <a href="{{ site.url }}/index.html" class="nav-brand">Prayas Patnaik</a>
+            <a href="{{ '/' | relative_url }}" class="nav-brand">Prayas Patnaik</a>
             <ul class="nav-links">
-                <li><a href="{{ site.url }}/index.html">Home</a></li>
-                <li><a href="{{ site.url }}/work.html">Work</a></li>
-                <li><a href="{{ site.url }}/blog.html">Blog</a></li>
-                <li><a href="{{ site.url }}/assets/resume.docx" target="_blank">Resume</a></li>
+                <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                <li><a href="{{ '/work.html' | relative_url }}">Work</a></li>
+                <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
+                <li><a href="{{ '/assets/resume.docx' | relative_url }}" target="_blank">Resume</a></li>
                 <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button></li>
             </ul>
         </div>
@@ -33,6 +34,6 @@
         <p>&copy; 2026 Prayas Patnaik</p>
     </footer>
 
-    <script src="{{ site.url }}/js/dark-mode.js"></script>
+    <script src="{{ '/js/dark-mode.js' | relative_url }}"></script>
 </body>
 </html>

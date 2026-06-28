@@ -1,84 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog - Prayas Patnaik. Articles about software engineering, embedded systems, and technology.">
-    <title>Blog - Prayas Patnaik</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Prayas Patnaik</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="assets/resume.docx" target="_blank">Resume</a></li>
-                <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button></li>
-            </ul>
-        </div>
-    </nav>
+---
+layout: default
+title: Blog
+description: Technical notes from Prayas Patnaik on camera ISP, image quality, embedded systems, and engineering projects.
+---
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Header Section -->
-        <section class="header">
-            <h1>Blog</h1>
-            <p>Thoughts on software engineering, technology, and code</p>
-        </section>
+<section class="header">
+    <h1>Blog</h1>
+    <p>Technical notes on camera ISP, image quality, embedded systems, and projects.</p>
+</section>
 
-        <!-- Blog Section -->
-        <section class="blog-section" id="blog">
-            <div class="blog-grid">
-                <!-- 
-                    HOW TO ADD A NEW BLOG POST:
-                    
-                    1. Create a new HTML file in the blog/ folder:
-                       - Copy blog/template.html
-                       - Rename to: blog/your-post-title.html
-                       - Edit the content with your article
-                    
-                    2. Add a blog card below (copy this template):
-                       - Update the emoji/icon in blog-card-cover
-                       - Set the title in <h3>
-                       - Set the date in blog-card-meta
-                       - Brief description in <p>
-                       - Update the href to point to your blog post file
-                    
-                    3. Commit and push to git:
-                       git add blog/
-                       git commit -m "Add blog post: your-post-title"
-                       git push origin main
-                -->
-                
-                <!-- Blog Post Card Template - Copy this for each new post -->
-                <article class="blog-card">
-                    <div class="blog-card-cover">�</div>
-                    <div class="blog-card-content">
-                        <h3>Getting Started with Camera ISP Optimization</h3>
-                        <div class="blog-card-meta">March 1, 2025</div>
-                        <p>An introduction to image signal processing pipelines and how to optimize them for automotive applications.</p>
-                        <a href="blog/getting-started-camera-isp.html">Read More →</a>
-                    </div>
-                </article>
+<section class="blog-section" id="blog">
+    {% if site.posts.size > 0 %}
+    <div class="blog-grid">
+        {% for post in site.posts %}
+        <article class="blog-card">
+            <div class="blog-card-cover">{{ post.icon | default: "ISP" }}</div>
+            <div class="blog-card-content">
+                <h3>{{ post.title }}</h3>
+                <div class="blog-card-meta">
+                    {{ post.date | date: "%B %-d, %Y" }}
+                    {% if post.category %} · {{ post.category }}{% endif %}
+                    {% if post.reading_time %} · {{ post.reading_time }} min read{% endif %}
+                </div>
+                <p>{{ post.excerpt | strip_html | truncate: 170 }}</p>
+                <a href="{{ post.url | relative_url }}">Read More →</a>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/prayaspatnaik21" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/prayas-patnaik-245a49123/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:prayaspatnaik21@gmail.com">Email</a>
-        </div>
-        <p>&copy; 2024 Prayas Patnaik. All rights reserved.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/dark-mode.js"></script>
-    <script src="js/script.js"></script>
-</body>
-</html>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No posts yet. Add Markdown files to <code>_posts</code> to publish your first note.</p>
+    {% endif %}
+</section>
