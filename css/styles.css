@@ -550,9 +550,25 @@ footer p {
     height: auto;
 }
 
-.post-content a,
-.post-navigation a {
+.post-content a {
     color: var(--job-text);
+}
+
+.post-navigation {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.post-navigation a {
+    display: inline-block;
+    padding: 0.65rem 0.9rem;
+    background-color: var(--job-border);
+    color: #1a1a1a;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .post-content code {
