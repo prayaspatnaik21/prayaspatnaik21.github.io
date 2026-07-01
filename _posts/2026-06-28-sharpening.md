@@ -38,8 +38,9 @@ math: true
             3. **If the edge profiles in the image is steep , we can call the image as a sharp image.**
 
 2. How can we make an image look sharp?
-    1. simple approach is to subtract the neighbouring pixel from the original pixel value. 
-    2. In other words , subtract shifted copies of the signal.
+    1. simple approach is to subtract a fraction of the neighbouring pixels from each pixel. In other words , subtract the shifted copies of the signal.
+    2. This is required to reduce the rise distance.
+    3. Rise Distance tells you the how many pixels it takes for an edge to transition from dark to bright.
 
 3. Mathematical Intuition
     1. $L_{sharp}(x) = L(x) - \frac{k_{sharp}}{2} \left( L(x - v) + L(x + v) \right)$ (1D Example)
