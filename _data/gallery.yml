@@ -1,0 +1,34 @@
+# Add gallery entries here after placing images in images/GalleryImages/.
+#
+# Example:
+# - title: "First imaging setup"
+#   image: "/images/GalleryImages/first-imaging-setup.jpg"
+#   date: "2026"
+#   location: "Dallas, TX"
+#   story: "A small moment from building and testing my camera pipeline."
+
+- title: "Morning Light"
+  image: "/images/GalleryImages/gallery-0481.png"
+  date: "2026"
+  story: "I live in Des Moines, Iowa and I have recently moved from Downtown to West Des Moines. This is my nth attempt to make morning 
+          runs part of my routine. On one of those runs ,  I found this place."
+
+- title: "Evening Sky"
+  image: "/images/GalleryImages/gallery-0483.png"
+  date: "2026"
+  story: "I went to Ted's Coney Island West, a Mediterranean restaurant. On the way back, I saw this scene.
+          I clicked this photo mainly to test the Iphone's Exposure Control. It was a good test cases because 
+          the sun was a strong light source coming through the leaves , creating a scattered, high contrast pattern
+          of light and shadow. I may be using the optic terms loosely here , but the scene felt challenging because the 
+          bright sunlight could easily push the camera to reduce the exposure time. If it reduced exposure too much , the rest
+          of the image would become darker and many details in the shadows could be lost. But the Iphone handled it beautifully,
+          honestly 100/10 , better than whay my eyes could comfortably see in the moment. BTW Ted's Coney's FalFel with Chilly is also 100/10 "
+
+- title: "Panoramic View"
+  image: "/images/GalleryImages/gallery-0486.png"
+  date: "2026"
+  story: "One of the photos from my run. In a team discussion, we were talking about the problem of inconsistent brightness across a
+          Panoramic image stitched from three cameras. The middle image from the rear camera appeared brighter than the left and right
+          imags , which made the final stitched panoramic view look inconsistent. That made me curious , so I tested the iPhone's panoramic
+          mode. This is what I got and honestly it is impressive. I can't tell where the blending happens. I don't know what is happening under the 
+          hood , but the result looks flawless. very cool pic."

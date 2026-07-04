@@ -1,0 +1,48 @@
+---
+layout: default
+title: Gallery
+description: Photos and short stories from Prayas Patnaik's life journey, projects, and places.
+permalink: /gallery.html
+---
+
+<section class="header gallery-header">
+    <h1>Gallery</h1>
+    <p>Photos, places, projects, and small moments from the journey.</p>
+</section>
+
+<section class="gallery-section">
+    {% if site.data.gallery and site.data.gallery.size > 0 %}
+    <div class="gallery-grid">
+        {% for item in site.data.gallery %}
+        <article class="gallery-card">
+            <a href="{{ item.image | relative_url }}" target="_blank" rel="noopener noreferrer" class="gallery-image-link">
+                <img
+                    src="{{ item.image | relative_url }}"
+                    alt="{{ item.title | default: 'Gallery photo' }}"
+                    loading="lazy">
+            </a>
+            <div class="gallery-card-content">
+                {% if item.title %}
+                <h2>{{ item.title }}</h2>
+                {% endif %}
+                {% if item.date or item.location %}
+                <p class="gallery-meta">
+                    {% if item.date %}{{ item.date }}{% endif %}
+                    {% if item.date and item.location %} · {% endif %}
+                    {% if item.location %}{{ item.location }}{% endif %}
+                </p>
+                {% endif %}
+                {% if item.story %}
+                <p>{{ item.story }}</p>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="gallery-empty">
+        <h2>Photos coming soon</h2>
+        <p>Add images to <code>images/GalleryImages/</code>, then add entries to <code>_data/gallery.yml</code>.</p>
+    </div>
+    {% endif %}
+</section>

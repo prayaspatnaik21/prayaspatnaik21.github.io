@@ -403,6 +403,90 @@ main {
 }
 
 /* ===================================
+   GALLERY
+   =================================== */
+.gallery-section {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px var(--box-shadow);
+    width: min(1180px, calc(100vw - 4rem));
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-card {
+    background-color: var(--job-bg);
+    border: 1px solid rgba(255, 215, 0, 0.34);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--box-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px var(--box-shadow);
+}
+
+.gallery-image-link {
+    display: block;
+    background-color: var(--bg-primary);
+}
+
+.gallery-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.gallery-card-content {
+    padding: 1.25rem;
+}
+
+.gallery-card-content h2 {
+    margin: 0 0 0.35rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.gallery-card-content p {
+    margin: 0.5rem 0 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.gallery-meta {
+    color: var(--job-text);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.gallery-empty {
+    padding: 2rem;
+    border: 1px dashed var(--border-color);
+    background-color: var(--job-bg);
+    text-align: center;
+}
+
+.gallery-empty h2 {
+    margin: 0 0 0.5rem;
+}
+
+.gallery-empty p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* ===================================
    BLOG CARDS
    =================================== */
 .blog-grid {
@@ -516,6 +600,9 @@ footer p {
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px var(--box-shadow);
+    width: min(1080px, calc(100vw - 4rem));
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .blog-post h1 {
@@ -550,8 +637,87 @@ footer p {
     height: auto;
 }
 
+.post-image {
+    width: min(100%, 760px);
+    margin: 1.5rem 0 2rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    box-shadow: 0 2px 5px var(--box-shadow);
+    overflow: hidden;
+}
+
+.post-image img {
+    display: block;
+    width: 100%;
+    max-height: min(430px, 56vw);
+    height: auto;
+    object-fit: contain;
+    background-color: var(--bg-primary);
+}
+
+.post-image figcaption {
+    padding: 0.65rem 0.85rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.terminal-output-image {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0.75rem 0 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    box-shadow: 0 2px 5px var(--box-shadow);
+    overflow: hidden;
+}
+
+.terminal-output-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.terminal-output-image figcaption {
+    padding: 0.5rem 0.7rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.implementation-demo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0 2.5rem;
+}
+
+.code-snapshot {
+    margin: 0;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    box-shadow: 0 2px 5px var(--box-shadow);
+    overflow: hidden;
+}
+
+.code-snapshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    background-color: #101216;
+}
+
+.code-snapshot figcaption {
+    padding: 0.65rem 0.85rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
 .comparison-demo {
-    margin: 1.25rem 0 2rem;
+    margin: 0;
     border: 1px solid var(--border-color);
     background-color: var(--bg-primary);
     box-shadow: 0 2px 5px var(--box-shadow);
@@ -684,6 +850,16 @@ footer p {
         grid-template-columns: 1fr;
     }
 
+    .gallery-section {
+        width: min(100%, calc(100vw - 2rem));
+        padding: 1.25rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .about-me,
     .work-experience,
     .blog-section,
@@ -775,6 +951,14 @@ footer p {
 
     .post-meta {
         font-size: 0.9rem;
+    }
+
+    .implementation-demo {
+        gap: 0.75rem;
+    }
+
+    .code-snapshot figcaption {
+        font-size: 0.85rem;
     }
 
     .comparison-demo iframe {

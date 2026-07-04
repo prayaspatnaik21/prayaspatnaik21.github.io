@@ -1,0 +1,124 @@
+---
+layout: post
+title: Sharpening
+date: 2026-06-28
+category: "Image Processing"
+reading_time: 5
+excerpt: "Working notes on image sharpening, edge contrast, and MTF."
+math: true
+---
+
+# Sharpening
+
+1. what exactly do you mean by a sharp image?
+    1. where the edges look sharp? what exactly do you mean by edges look sharp?
+    2. can we call an image properly sharp where the intensity profile across an edge in an image is very steep or in other word , it takes fewer pixels to go from bright side of the edge to dark side of the edge or vice-versa.
+    3. To understand this , let's first understand Two Terms , PSF and MTF.
+
+2. PSF (Point Spread Function)
+    1. The point spread function describes how an imaging system responds to a single ideal point of light.
+    2. In perfect world , one point on the object gives you one point on the image.
+    3. In reality , that point in the image spreads out onto a small blob of light.
+    4. The PSF is the map of how energy from one ideal scene point is spread on the image plane.
+    5. There is no definite shape of PSF. It can take wildly different , irregular forms.
+    6. There is no single isolated PSF in a real photograph. A real photograph is the superposition of many scene points , each blurred by the PSF.
+    7. In normal images , the situation is complex , a small area of the scene is made of many densely packed points , each of which produces its own PSF in the image.
+    8. As the PSF is never infinitesimally small , the individual point spreads overlaps each other.
+    9. The brightness we measure at any location is not from one point alone , it's the result of a 2D summation of many overlapping PSFs from all the neighbouring object points.
+
+2. MTF (Modulation Transfer Function)
+    1. On a high level , Modulation Transfer equals Modulation in the image / Modulation in the object.
+    2. Object Modulation - The contrast in the original scene.
+    3. Image Modulation - The contrast of the same scene recorded by the sensor (after passing through the lens)
+    4. As the PSF leaks light from bright into dark areas , the bright pixel becomes dimmer and the dark one becomes bright in the image. So , the image modulation is always less than the object modulation.
+    5. Modulation transfer tells you the fraction of the original contrast survived through lens or in otherwords how much contrast is preserved.
+
+4. Edges are the most important features of an image. Border between two areas with different brightness or color.
+    1. Edge profile is the variation of the pixel intensity going from one intensity area to other.
+    2. It is the cumulative sum of the PSFs which tells you the how a edge boundary is produced.
+    3. **If the edge profiles in the image is steep , we can call the image as a sharp image.**
+
+5. How can we make an image look sharp?
+    1. simple approach is to subtract a fraction of the neighbouring pixels from each pixel. In other words , subtract the shifted copies of the signal.
+    2. This is required to reduce the rise distance.
+    3. Rise Distance tells you the how many pixels it takes for an edge to transition from dark to bright.
+
+6. Mathematical Intuition
+    1. $L_{sharp}(x) = L(x) - \frac{k_{sharp}}{2} \left( L(x - v) + L(x + v) \right)$ (1D Example)
+    2. $L_{sharp}(x)$ - pixel value at originally at position x.
+    3. $k_{sharp}$ - sharpening strength ( 0 = no sharpening , and higher -> more)
+    4. V = shift distance in the same units as x (for now we can in pixel values)
+
+7. Why the above equation works?
+    1. If you are on a flat region of the signal
+    2. It is same to assume $L(x)$ $\approx$ $L(x-v)$ $\approx$ $L(x+v)$ 
+    3. $L_{sharp}(x) = L(x) - \frac{k_{sharp}}{2} \left(2 * L(x)\right)$
+    4. $L_{sharp}(x) = L(x)( 1 - {k_{sharp}})$
+    5. Everything gets slightly dimmer.
+    6. we can add a normalization term to this to make $L_{sharp}(x) \approx L(x)$. 
+    7. Normalization constant - 1 - ${k_{sharp}}$
+    8. At an edge , $L(x-v)$ amd $L(x+v)$ differs from $L(x)$ , so the subtraction amplifies the difference making the edge steeper.
+
+8. what is V?
+    1. connects pixel distance to physical distance.
+    2. $V$ = $R_{s}$ / $d_{scan}$
+    3. $R_{s}$ -> sharpening radius in pixels.
+    4. $d_{scan}$ -> scan rate in pixel per unit distance (pixel/mm) , you can choose any unit for this.
+    5. V -> shift in physical distance (eg mm)
+    6. working in pure pixel distance -> $d_{scan}$ = 1 pixel/mm -> V = $R_{s}$
+
+9. Implementation 
+    1. Based
+
+## Sharpening Output
+
+### Simple Sharpening Algorithm
+
+<div class="implementation-demo">
+    <figure class="code-snapshot">
+        <img
+            src="{{ '/images/sharpeningImages/cpu_sharpening_code.png' | relative_url }}"
+            alt="Simple CPU sharpening code"
+            loading="lazy">
+        <figcaption>
+            Simple CPU sharpening code.
+            <a href="https://github.com/prayaspatnaik21/WITHIN/blob/a278eaa5869fde806e673f352b753977adb22575/Algorithms/imageEnhancement/sharpeningCPU.cpp#L28" target="_blank" rel="noopener noreferrer">View source</a>
+        </figcaption>
+    </figure>
+    <div class="comparison-demo">
+        <iframe
+            src="{{ '/images/imageSliderImages/image-comparison-slider_cpu.html' | relative_url }}"
+            title="Simple sharpening algorithm comparison"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+### CUDA Based Sharpening
+
+<div class="implementation-demo">
+    <figure class="code-snapshot">
+        <img
+            src="{{ '/images/sharpeningImages/gpu_sharpening_code.png' | relative_url }}"
+            alt="CUDA based sharpening code"
+            loading="lazy">
+        <figcaption>
+            CUDA based sharpening code.
+            <a href="https://github.com/prayaspatnaik21/WITHIN/blob/a278eaa5869fde806e673f352b753977adb22575/Algorithms/imageEnhancement/sharpeningGPU.cu#L7" target="_blank" rel="noopener noreferrer">View source</a>
+        </figcaption>
+    </figure>
+    <div class="comparison-demo">
+        <iframe
+            src="{{ '/images/imageSliderImages/image-comparison-slider_gpu.html' | relative_url }}"
+            title="CUDA based sharpening comparison"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+1. Add the equation change for 2D image and the reason behind that.
+2. Explain the code for cpu and gpu
+## Resources
+
+- [Imatest: Sharpening](https://www.imatest.com/imaging/sharpening/)
+- [How to Read MTF Curves](https://lenspire.zeiss.com/photo/app/uploads/2018/04/Article-MTF-2008-EN.pdf)
