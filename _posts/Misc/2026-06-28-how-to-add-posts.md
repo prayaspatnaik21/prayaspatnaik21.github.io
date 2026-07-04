@@ -2,7 +2,8 @@
 layout: post
 title: How I Add Notes to This Site
 date: 2026-06-28
-category: "Site Notes"
+category: "Misc"
+icon: "NOTE"
 reading_time: 2
 excerpt: "A short reference for publishing Markdown posts on this GitHub Pages portfolio."
 ---
@@ -22,9 +23,10 @@ Add front matter at the top:
 ```yaml
 ---
 layout: post
-title: Your Post Title
+title: "How I Add Notes to this Site"
 date: 2026-06-28
-category: "Image Processing"
+category: "Misc"
+icon: "NOTE"
 reading_time: 5
 excerpt: "One sentence summary for the blog page."
 ---

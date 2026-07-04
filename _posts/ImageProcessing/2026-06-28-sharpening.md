@@ -3,6 +3,7 @@ layout: post
 title: Sharpening
 date: 2026-06-28
 category: "Image Processing"
+icon: "Sharpening"
 reading_time: 5
 excerpt: "Working notes on image sharpening, edge contrast, and MTF."
 math: true
@@ -68,7 +69,10 @@ math: true
     6. working in pure pixel distance -> $d_{scan}$ = 1 pixel/mm -> V = $R_{s}$
 
 9. Implementation 
-    1. Based
+    1. Equation mentioned above is for 1D Signal , we can extend this to include vertical and horizontal directions.
+    2. we can take neighboring pixels in Vertical Direction and Horizontal Direction and take their average as a multiplicative term with ksharp.
+    3. Simply , go to each pixel -> find the neighboring pixels and calculate their Average -> substitute in the equation -> replace the pixel intensity with the calculated one.
+    4. I did the exact same thing for CUDA based implementation as well. Kernel basically does the computation for each pixel and save the output.
 
 ## Sharpening Output
 
@@ -116,8 +120,6 @@ math: true
     </div>
 </div>
 
-1. Add the equation change for 2D image and the reason behind that.
-2. Explain the code for cpu and gpu
 ## Resources
 
 - [Imatest: Sharpening](https://www.imatest.com/imaging/sharpening/)

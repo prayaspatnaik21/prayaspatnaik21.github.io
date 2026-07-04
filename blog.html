@@ -7,7 +7,7 @@ permalink: /blog.html
 
 <section class="header">
     <h1>Blog</h1>
-    <p>Technical notes on camera ISP, image quality, embedded systems, and projects.</p>
+    <p>Technical Notes + Life Learnings</p>
 </section>
 
 <section class="blog-section" id="blog">
@@ -15,7 +15,7 @@ permalink: /blog.html
     <div class="blog-grid">
         {% for post in site.posts %}
         <article class="blog-card">
-            <div class="blog-card-cover">{{ post.icon | default: "ISP" }}</div>
+            <div class="blog-card-cover">{{ post.icon | default: "NOTE" }}</div>
             <div class="blog-card-content">
                 <h3>{{ post.title }}</h3>
                 <div class="blog-card-meta">
