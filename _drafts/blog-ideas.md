@@ -9,5 +9,8 @@ excerpt: "A scratchpad for future blog ideas."
 # Blogs
 
 1. Blog Path
-2. 
+2. Lens Shading
+3. Interpolation
+4. CUDA Notes
+    1. Cuda Part I 
 
