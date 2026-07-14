@@ -13,6 +13,9 @@ layout: default
             {% if page.reading_time %}
             <span class="reading-time">{{ page.reading_time }} min read</span>
             {% endif %}
+            {% if page.status %}
+            <span class="post-status post-status-{{ page.status | slugify }}">{{ page.status }}</span>
+            {% endif %}
         </div>
     </header>
 

@@ -539,7 +539,41 @@ main {
 .blog-card-meta {
     font-size: 0.9rem;
     color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.post-status {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
     margin-bottom: 1rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    color: var(--job-text);
+    background-color: var(--bg-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.post-meta .post-status {
+    margin: 0 0 0 0.5rem;
+    vertical-align: middle;
+}
+
+.post-status-work-in-progress {
+    color: #f5b84b;
+    border-color: rgba(245, 184, 75, 0.45);
+    background-color: rgba(245, 184, 75, 0.12);
+}
+
+.post-status-completed,
+.post-status-complete {
+    color: #54c58a;
+    border-color: rgba(84, 197, 138, 0.45);
+    background-color: rgba(84, 197, 138, 0.12);
 }
 
 .blog-card p {
