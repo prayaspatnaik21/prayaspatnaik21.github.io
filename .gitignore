@@ -6,3 +6,4 @@ Gemfile.lock
 *.gem
 node_modules/
 .DS_Store
+~$*

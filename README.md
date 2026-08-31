@@ -61,7 +61,8 @@ Static pages served by GitHub Pages
 │   ├── sharpeningImages/       # Code screenshots and image assets for sharpening notes
 │   └── imageSliderImages/      # Standalone before/after slider demos
 ├── assets/
-│   └── resume.docx             # Resume linked from navigation
+│   ├── resume.docx             # Editable resume source
+│   └── resume.pdf              # Browser-facing resume linked from navigation
 ├── _data/
 │   └── gallery.yml             # Gallery photo metadata and short stories
 ├── _posts/
@@ -287,15 +288,16 @@ It currently supports the profile/greeting animation and small client-side behav
 
 ### `assets/`
 
-Use this folder for downloadable files.
+Use this folder for resume files and other static documents.
 
-Current file:
+Current files:
 
 ```text
-assets/resume.docx
+assets/resume.docx              # Editable source
+assets/resume.pdf               # Browser-renderable version
 ```
 
-If you replace the resume, keep the same filename or update all navigation links that point to it.
+After updating the DOCX, export it as `assets/resume.pdf` so the navigation continues to open the latest resume in the browser.
 
 ### `images/`
 
@@ -380,7 +382,7 @@ Home: /
 Work: /work.html
 Blog: /blog.html
 Gallery: /gallery.html
-Resume: /assets/resume.docx
+Resume: /assets/resume.pdf#page=1&zoom=100
 ```
 
 ### Change Blog Listing Cards
@@ -763,7 +765,8 @@ Jekyll page wrapper/nav/footer -> _layouts/default.html
 Site-wide styles               -> css/styles.css
 Dark mode behavior             -> js/dark-mode.js
 Homepage animation             -> js/script.js
-Resume file                    -> assets/resume.docx
+Editable resume source         -> assets/resume.docx
+Browser-facing resume          -> assets/resume.pdf
 Original profile image         -> images/profileImages/prayas.jpg
 Rendered profile crops         -> images/profileImages/prayas-profile-420.jpg, images/profileImages/prayas-profile-840.jpg
 Jekyll settings                -> _config.yml
