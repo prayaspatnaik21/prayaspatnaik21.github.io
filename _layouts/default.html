@@ -53,5 +53,8 @@
     </footer>
 
     <script src="{{ '/js/dark-mode.js' | relative_url }}"></script>
+    {% if page.gallery_carousel %}
+    <script src="{{ '/js/gallery.js' | relative_url }}"></script>
+    {% endif %}
 </body>
 </html>

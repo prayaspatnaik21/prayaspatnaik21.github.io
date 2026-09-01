@@ -485,6 +485,96 @@ main {
     font-weight: bold;
 }
 
+.gallery-carousel-card {
+    grid-column: 1 / -1;
+}
+
+.gallery-carousel-card:hover {
+    transform: none;
+}
+
+.gallery-carousel-card:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 4px;
+}
+
+.gallery-carousel-header {
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.gallery-carousel-media {
+    position: relative;
+    height: clamp(360px, 58vw, 680px);
+    overflow: hidden;
+    background-color: #000;
+}
+
+.gallery-carousel-slide {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-carousel-slide[hidden],
+.gallery-carousel-description[hidden],
+.gallery-carousel-control[hidden] {
+    display: none;
+}
+
+.gallery-card .gallery-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
+.gallery-carousel-control {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0 0 0.18rem;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.62);
+    color: #fff;
+    font: inherit;
+    font-size: 2.25rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-carousel-control:hover,
+.gallery-carousel-control:focus-visible {
+    border-color: var(--link-color);
+    background-color: rgba(0, 0, 0, 0.88);
+    outline: none;
+}
+
+.gallery-carousel-previous {
+    left: 1rem;
+}
+
+.gallery-carousel-next {
+    right: 1rem;
+}
+
+.gallery-carousel-descriptions {
+    min-height: 5rem;
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.gallery-carousel-description {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
 .gallery-empty {
     padding: 2rem;
     border: 1px dashed var(--border-color);
@@ -1004,6 +1094,24 @@ footer p {
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .gallery-carousel-media {
+        height: clamp(280px, 75vw, 500px);
+    }
+
+    .gallery-carousel-control {
+        width: 2.6rem;
+        height: 2.6rem;
+        font-size: 2rem;
+    }
+
+    .gallery-carousel-previous {
+        left: 0.65rem;
+    }
+
+    .gallery-carousel-next {
+        right: 0.65rem;
     }
 
     .about-me,

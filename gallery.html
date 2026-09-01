@@ -3,6 +3,7 @@ layout: default
 title: Gallery
 description: Photos and short stories from Prayas Patnaik's life journey, projects, and places.
 permalink: /gallery.html
+gallery_carousel: true
 ---
 
 <section class="header gallery-header">
@@ -14,6 +15,67 @@ permalink: /gallery.html
     {% if site.data.gallery and site.data.gallery.size > 0 %}
     <div class="gallery-grid">
         {% for item in site.data.gallery %}
+        {% if item.photos %}
+        <article
+            class="gallery-card gallery-carousel-card"
+            data-gallery-carousel
+            aria-roledescription="carousel"
+            aria-label="{{ item.title | default: 'Photo collection' }}"
+            tabindex="0">
+            <div class="gallery-card-content gallery-carousel-header">
+                {% if item.title %}
+                <h2>{{ item.title }}</h2>
+                {% endif %}
+                {% if item.date or item.location %}
+                <p class="gallery-meta">
+                    {% if item.date %}{{ item.date }}{% endif %}
+                    {% if item.date and item.location %} · {% endif %}
+                    {% if item.location %}{{ item.location }}{% endif %}
+                </p>
+                {% endif %}
+                {% if item.story %}
+                <p>{{ item.story }}</p>
+                {% endif %}
+            </div>
+
+            <div class="gallery-carousel-media">
+                {% for photo in item.photos %}
+                <a
+                    href="{{ photo.image | relative_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="gallery-carousel-slide{% if forloop.first %} is-active{% endif %}"
+                    data-carousel-slide
+                    {% unless forloop.first %}hidden{% endunless %}>
+                    <img
+                        {% if forloop.first %}src="{{ photo.image | relative_url }}"{% else %}data-carousel-src="{{ photo.image | relative_url }}"{% endif %}
+                        alt="{{ photo.alt | default: item.title | default: 'Gallery photo' }}"
+                        loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+                </a>
+                {% endfor %}
+
+                <button
+                    type="button"
+                    class="gallery-carousel-control gallery-carousel-previous"
+                    data-carousel-previous
+                    aria-label="Previous photo">&#8249;</button>
+                <button
+                    type="button"
+                    class="gallery-carousel-control gallery-carousel-next"
+                    data-carousel-next
+                    aria-label="Next photo">&#8250;</button>
+            </div>
+
+            <div class="gallery-carousel-descriptions" aria-live="polite">
+                {% for photo in item.photos %}
+                <p
+                    class="gallery-carousel-description{% if forloop.first %} is-active{% endif %}"
+                    data-carousel-description
+                    {% unless forloop.first %}hidden{% endunless %}>{{ photo.description | default: 'Description to be added.' }}</p>
+                {% endfor %}
+            </div>
+        </article>
+        {% else %}
         <article class="gallery-card">
             <a href="{{ item.image | relative_url }}" target="_blank" rel="noopener noreferrer" class="gallery-image-link">
                 <img
@@ -37,6 +99,7 @@ permalink: /gallery.html
                 {% endif %}
             </div>
         </article>
+        {% endif %}
         {% endfor %}
     </div>
     {% else %}

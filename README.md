@@ -54,6 +54,7 @@ Static pages served by GitHub Pages
 │   └── styles.css              # Main styling for the whole site
 ├── js/
 │   ├── dark-mode.js            # Dark/light mode toggle
+│   ├── gallery.js              # Gallery carousel navigation
 │   └── script.js               # Homepage animation and small interactions
 ├── images/
 │   ├── profileImages/          # Profile photo and optimized homepage crops
@@ -457,6 +458,19 @@ If you want a photo without a story yet, this is enough:
 
 ```yaml
 - image: "/images/GalleryImages/photo-name.jpg"
+```
+
+To show several related photos inside one carousel, use a `photos` list. Each photo has its own description:
+
+```yaml
+- title: "Omaha"
+  photos:
+    - image: "/images/GalleryImages/omaha/photo-1.jpg"
+      alt: "A short description of what is visible"
+      description: "The story behind this photo."
+    - image: "/images/GalleryImages/omaha/photo-2.jpg"
+      alt: "A short description of what is visible"
+      description: "The story behind this photo."
 ```
 
 ## Add A New Blog Post
