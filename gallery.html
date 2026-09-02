@@ -20,7 +20,7 @@ gallery_carousel: true
             class="gallery-card gallery-carousel-card"
             data-gallery-carousel
             aria-roledescription="carousel"
-            aria-label="{{ item.title | default: 'Media collection' }}"
+            aria-label="{{ item.title | default: 'Photo collection' }}"
             tabindex="0">
             <div class="gallery-card-content gallery-carousel-header">
                 {% if item.title %}
@@ -40,24 +40,6 @@ gallery_carousel: true
 
             <div class="gallery-carousel-media">
                 {% for photo in item.photos %}
-                {% if photo.video %}
-                <div
-                    class="gallery-carousel-slide{% if forloop.first %} is-active{% endif %}"
-                    data-carousel-slide
-                    {% unless forloop.first %}hidden{% endunless %}>
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                        {% if photo.poster %}poster="{{ photo.poster | relative_url }}"{% endif %}
-                        aria-label="{{ photo.alt | default: item.title | default: 'Gallery video' }}">
-                        <source
-                            {% if forloop.first %}src="{{ photo.video | relative_url }}"{% else %}data-carousel-src="{{ photo.video | relative_url }}"{% endif %}
-                            type="video/mp4">
-                        Your browser does not support embedded videos.
-                    </video>
-                </div>
-                {% else %}
                 <a
                     href="{{ photo.image | relative_url }}"
                     target="_blank"
@@ -70,7 +52,6 @@ gallery_carousel: true
                         alt="{{ photo.alt | default: item.title | default: 'Gallery photo' }}"
                         loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
                 </a>
-                {% endif %}
                 {% endfor %}
 
                 <button
@@ -92,6 +73,24 @@ gallery_carousel: true
                     data-carousel-description
                     {% unless forloop.first %}hidden{% endunless %}>{{ photo.description | default: 'Description to be added.' }}</p>
                 {% endfor %}
+            </div>
+        </article>
+        {% elsif item.video %}
+        <article class="gallery-card gallery-video-card">
+            <video
+                class="gallery-video"
+                controls
+                playsinline
+                preload="metadata"
+                {% if item.poster %}poster="{{ item.poster | relative_url }}"{% endif %}
+                aria-label="{{ item.alt | default: item.title | default: 'Gallery video' }}">
+                <source src="{{ item.video | relative_url }}" type="video/mp4">
+                Your browser does not support embedded videos.
+            </video>
+            <div class="gallery-card-content">
+                {% if item.title %}
+                <h2>{{ item.title }}</h2>
+                {% endif %}
             </div>
         </article>
         {% else %}

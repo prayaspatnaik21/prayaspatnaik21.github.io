@@ -18,9 +18,8 @@
     - image: "/images/GalleryImages/omaha_blog_photos/IMG_0652.jpg"
       alt: "Omaha photo 7"
       description: "Tropical fish"
-    - video: "/images/GalleryImages/omaha_blog_photos/tiger.mp4"
-      poster: "/images/GalleryImages/omaha_blog_photos/tiger-poster.jpg"
-      alt: "Tiger walking through its habitat"
+    - image: "/images/GalleryImages/omaha_blog_photos/IMG_0658.jpg"
+      alt: "Omaha photo 8"
       description: "Tiger"
     - image: "/images/GalleryImages/omaha_blog_photos/IMG_0659.jpg"
       alt: "Omaha photo 9"
@@ -49,6 +48,11 @@
     - image: "/images/GalleryImages/omaha_blog_photos/IMG_0717.jpg"
       alt: "Omaha photo 22"
       description: "Giraffe"
+
+- title: "Tiger Video"
+  video: "/images/GalleryImages/omaha_blog_photos/tiger.mp4"
+  poster: "/images/GalleryImages/omaha_blog_photos/tiger-poster.jpg"
+  alt: "Tiger walking through its habitat"
 
 - title: "Morning Light"
   image: "/images/GalleryImages/gallery-0481.png"

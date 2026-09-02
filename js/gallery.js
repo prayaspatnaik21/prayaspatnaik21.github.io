@@ -11,20 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let currentIndex = 0;
 
-        const loadMedia = (index) => {
-            const slide = slides[index];
-            const image = slide?.querySelector("img[data-carousel-src]");
-            const videoSource = slide?.querySelector("video source[data-carousel-src]");
+        const loadImage = (index) => {
+            const image = slides[index]?.querySelector("img[data-carousel-src]");
 
             if (image) {
                 image.src = image.dataset.carouselSrc;
                 delete image.dataset.carouselSrc;
-            }
-
-            if (videoSource) {
-                videoSource.src = videoSource.dataset.carouselSrc;
-                delete videoSource.dataset.carouselSrc;
-                videoSource.closest("video").load();
             }
         };
 
@@ -36,10 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 slide.hidden = !isCurrent;
                 slide.classList.toggle("is-active", isCurrent);
                 slide.setAttribute("aria-hidden", String(!isCurrent));
-
-                if (!isCurrent) {
-                    slide.querySelector("video")?.pause();
-                }
             });
 
             descriptions.forEach((description, descriptionIndex) => {
@@ -48,18 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 description.classList.toggle("is-active", isCurrent);
             });
 
-            loadMedia(currentIndex);
-            loadMedia((currentIndex + 1) % slides.length);
+            loadImage(currentIndex);
+            loadImage((currentIndex + 1) % slides.length);
         };
 
         previousButton.addEventListener("click", () => showPhoto(currentIndex - 1));
         nextButton.addEventListener("click", () => showPhoto(currentIndex + 1));
 
         carousel.addEventListener("keydown", (event) => {
-            if (event.target.closest?.("video")) {
-                return;
-            }
-
             if (event.key === "ArrowLeft") {
                 event.preventDefault();
                 showPhoto(currentIndex - 1);

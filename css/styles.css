@@ -521,12 +521,23 @@ main {
     display: none;
 }
 
-.gallery-card .gallery-carousel-slide img,
-.gallery-card .gallery-carousel-slide video {
+.gallery-card .gallery-carousel-slide img {
     display: block;
     width: 100%;
     height: 100%;
     aspect-ratio: auto;
+    object-fit: contain;
+}
+
+.gallery-video-card {
+    grid-column: 1 / -1;
+}
+
+.gallery-video {
+    display: block;
+    width: 100%;
+    height: clamp(360px, 58vw, 680px);
+    background-color: #000;
     object-fit: contain;
 }
 
@@ -1099,6 +1110,10 @@ footer p {
     }
 
     .gallery-carousel-media {
+        height: clamp(280px, 75vw, 500px);
+    }
+
+    .gallery-video {
         height: clamp(280px, 75vw, 500px);
     }
 
