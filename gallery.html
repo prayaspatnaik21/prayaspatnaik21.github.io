@@ -20,7 +20,7 @@ gallery_carousel: true
             class="gallery-card gallery-carousel-card"
             data-gallery-carousel
             aria-roledescription="carousel"
-            aria-label="{{ item.title | default: 'Photo collection' }}"
+            aria-label="{{ item.title | default: 'Media collection' }}"
             tabindex="0">
             <div class="gallery-card-content gallery-carousel-header">
                 {% if item.title %}
@@ -40,6 +40,24 @@ gallery_carousel: true
 
             <div class="gallery-carousel-media">
                 {% for photo in item.photos %}
+                {% if photo.video %}
+                <div
+                    class="gallery-carousel-slide{% if forloop.first %} is-active{% endif %}"
+                    data-carousel-slide
+                    {% unless forloop.first %}hidden{% endunless %}>
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                        {% if photo.poster %}poster="{{ photo.poster | relative_url }}"{% endif %}
+                        aria-label="{{ photo.alt | default: item.title | default: 'Gallery video' }}">
+                        <source
+                            {% if forloop.first %}src="{{ photo.video | relative_url }}"{% else %}data-carousel-src="{{ photo.video | relative_url }}"{% endif %}
+                            type="video/mp4">
+                        Your browser does not support embedded videos.
+                    </video>
+                </div>
+                {% else %}
                 <a
                     href="{{ photo.image | relative_url }}"
                     target="_blank"
@@ -52,18 +70,19 @@ gallery_carousel: true
                         alt="{{ photo.alt | default: item.title | default: 'Gallery photo' }}"
                         loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
                 </a>
+                {% endif %}
                 {% endfor %}
 
                 <button
                     type="button"
                     class="gallery-carousel-control gallery-carousel-previous"
                     data-carousel-previous
-                    aria-label="Previous photo">&#8249;</button>
+                    aria-label="Previous gallery item">&#8249;</button>
                 <button
                     type="button"
                     class="gallery-carousel-control gallery-carousel-next"
                     data-carousel-next
-                    aria-label="Next photo">&#8250;</button>
+                    aria-label="Next gallery item">&#8250;</button>
             </div>
 
             <div class="gallery-carousel-descriptions" aria-live="polite">

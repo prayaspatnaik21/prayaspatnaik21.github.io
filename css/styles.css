@@ -521,7 +521,9 @@ main {
     display: none;
 }
 
-.gallery-card .gallery-carousel-slide img {
+.gallery-card .gallery-carousel-slide img,
+.gallery-card .gallery-carousel-slide video {
+    display: block;
     width: 100%;
     height: 100%;
     aspect-ratio: auto;
